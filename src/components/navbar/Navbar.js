@@ -12,7 +12,10 @@ export default function Navbar() {
           <img src={storeLogo} className="mb-1" />
           <h3 className="mr-4 aqua-color">dreamStore</h3>
           <Link className="black-text-color" to="/products">
-            <h5>products</h5>
+            <h5> Products</h5>
+          </Link>
+          <Link className="black-text-color ml-2" to="/">
+            <h5>Home</h5>
           </Link>
         </div>
         <div className="search-bar-section">

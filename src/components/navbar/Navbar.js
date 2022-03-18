@@ -9,7 +9,7 @@ export default function Navbar() {
       {" "}
       <div className="nav-bar nav-yellow-shadow">
         <div className="nav-logo-section">
-          <img src={storeLogo} className="mb-1" />
+          <img src={storeLogo} alt="dreamStore-logo" className="mb-1" />
           <h3 className="mr-4 aqua-color">dreamStore</h3>
           <Link className="black-text-color" to="/products">
             <h5> Products</h5>

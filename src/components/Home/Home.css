@@ -35,7 +35,7 @@ img.banner-img {
 }
 .card-category-txt {
   position: absolute;
-  bottom: 1rem;
+  top: 27rem;
   padding: 10px;
   border-radius: 64px;
   background-color: white;

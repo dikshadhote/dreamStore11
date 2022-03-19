@@ -8,8 +8,3 @@
 .orange-bg {
   background-color: var(--orange-color);
 }
-
-.page-container {
-  position: relative;
-  min-height: 100vh;
-}

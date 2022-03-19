@@ -14,8 +14,6 @@ export const products = [
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
     price: 20000,
     discountPrice: 17999,
-    categoryImg:
-      "https://img.freepik.com/free-psd/wooden-furniture-with-decorative-objects-lamp-interior-design-ideas_176382-1517.jpg?w=740",
     productImg:
       "https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129803.jpg?w=740",
   },
@@ -27,8 +25,7 @@ export const products = [
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
     price: 20000,
     discountPrice: 17999,
-    categoryImg:
-      "https://img.freepik.com/free-psd/wooden-furniture-with-decorative-objects-lamp-interior-design-ideas_176382-1517.jpg?w=740",
+
     productImg:
       "https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129803.jpg?w=740",
   },
@@ -40,8 +37,7 @@ export const products = [
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
     price: 20000,
     discountPrice: 17999,
-    categoryImg:
-      "https://img.freepik.com/free-psd/wooden-furniture-with-decorative-objects-lamp-interior-design-ideas_176382-1517.jpg?w=740",
+
     productImg:
       "https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129803.jpg?w=740",
   },
@@ -53,8 +49,7 @@ export const products = [
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
     price: 20000,
     discountPrice: 17999,
-    categoryImg:
-      "https://img.freepik.com/free-psd/wooden-furniture-with-decorative-objects-lamp-interior-design-ideas_176382-1517.jpg?w=740",
+
     productImg:
       "https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129803.jpg?w=740",
   },
@@ -66,21 +61,19 @@ export const products = [
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
     price: 20000,
     discountPrice: 17999,
-    categoryImg:
-      "https://img.freepik.com/free-psd/wooden-furniture-with-decorative-objects-lamp-interior-design-ideas_176382-1517.jpg?w=740",
+
     productImg:
       "https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129803.jpg?w=740",
   },
   {
     _id: uuid(),
-    categoryName: "Charirs",
+    categoryName: "Chairs",
     title: "Strandmon",
     subtitle: "Wing Chair,grey",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
     price: 20000,
     discountPrice: 17999,
-    categoryImg:
-      "https://img.freepik.com/free-psd/wooden-furniture-with-decorative-objects-lamp-interior-design-ideas_176382-1517.jpg?w=740",
+
     productImg:
       "https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129803.jpg?w=740",
   },
@@ -92,21 +85,19 @@ export const products = [
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
     price: 20000,
     discountPrice: 17999,
-    categoryImg:
-      "https://img.freepik.com/free-psd/wooden-furniture-with-decorative-objects-lamp-interior-design-ideas_176382-1517.jpg?w=740",
+
     productImg:
       "https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129803.jpg?w=740",
   },
   {
     _id: uuid(),
-    categoryName: "Sitorage & Organisation",
+    categoryName: "Storage & Organisation",
     title: "Strandmon",
     subtitle: "Wing Chair,grey",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
     price: 20000,
     discountPrice: 17999,
-    categoryImg:
-      "https://img.freepik.com/free-psd/wooden-furniture-with-decorative-objects-lamp-interior-design-ideas_176382-1517.jpg?w=740",
+
     productImg:
       "https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129803.jpg?w=740",
   },

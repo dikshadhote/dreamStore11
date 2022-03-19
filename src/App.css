@@ -1,5 +1,11 @@
 @import "https://dreamui-demo.netlify.app/dreamui-v1.css";
+@import "./components/Home/Home.css";
 
-.posit-relative {
+.page-container {
   position: relative;
+  min-height: 100vh;
+}
+
+.content-container {
+  padding-bottom: 10rem;
 }

@@ -1,7 +1,8 @@
 .footer-ecom {
   padding: 2rem;
   background-color: var(--component-secondary-color);
-  position: fixed;
+  height: 10rem;
+  position: absolute;
   bottom: 0;
   width: 100%;
 }

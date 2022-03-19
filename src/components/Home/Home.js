@@ -16,9 +16,9 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
+    <div className="page-container">
       <Navbar />
-      <div className="pt-2">
+      <div className="content-container pt-2">
         <div className="carousel-banner d-flex  mt-4">
           <img
             className="banner-img responsive-img"

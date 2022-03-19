@@ -30,12 +30,14 @@ img.banner-img {
   margin-left: 8rem;
   margin-bottom: 18rem;
 }
-.btn-shop.orange-bg {
+.card-category-txt.btn-shop.orange-bg {
   background-color: var(--orange-color);
+  position: absolute;
+  bottom: 45rem;
 }
 .card-category-txt {
   position: absolute;
-  top: 27rem;
+  bottom: 1rem;
   padding: 10px;
   border-radius: 64px;
   background-color: white;

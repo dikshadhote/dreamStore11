@@ -1,6 +1,14 @@
 @import "https://dreamui-demo.netlify.app/dreamui-v1.css";
 @import "./components/Home/Home.css";
 
+:root {
+  --orange-color: #ffad00;
+}
+
+.orange-bg {
+  background-color: var(--orange-color);
+}
+
 .page-container {
   position: relative;
   min-height: 100vh;

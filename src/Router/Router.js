@@ -6,15 +6,17 @@ import {
   Cart,
   Login,
   Home,
+  MockmanComponent,
 } from "./../components/components";
-export default function () {
+export default function Router() {
   return (
     <Routes>
-      <Route exact path="/" component={Home} />
+      <Route exact path="/" element={<Home />} />
       <Route path="/products" element={<Products />} />
-      <Route path="/wishlist" component={Wishlist} />
-      <Route path="/cart" component={Cart} />
-      <Route path="/login" component={Login} />
+      <Route path="/wishlist" element={<Wishlist />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/mockman" element={<MockmanComponent />} />
     </Routes>
   );
 }

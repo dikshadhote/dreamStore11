@@ -8,23 +8,106 @@ import { v4 as uuid } from "uuid";
 export const products = [
   {
     _id: uuid(),
-    title: "You Can WIN",
-    author: "Shiv Khera",
-    price: "5000",
-    categoryName: "non-fiction",
+    categoryName: "Sofas & armchairs",
+    title: "Strandmon",
+    subtitle: "Wing Chair,grey",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+    price: 20000,
+    discountPrice: 17999,
+    categoryImg:
+      "https://img.freepik.com/free-psd/wooden-furniture-with-decorative-objects-lamp-interior-design-ideas_176382-1517.jpg?w=740",
+    productImg:
+      "https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129803.jpg?w=740",
   },
   {
     _id: uuid(),
-    title: "You are Winner",
-    author: "Junaid Qureshi",
-    price: "3000",
-    categoryName: "horror",
+    categoryName: "Cookware and Table ware",
+    title: "Strandmon",
+    subtitle: "Wing Chair,grey",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+    price: 20000,
+    discountPrice: 17999,
+    categoryImg:
+      "https://img.freepik.com/free-psd/wooden-furniture-with-decorative-objects-lamp-interior-design-ideas_176382-1517.jpg?w=740",
+    productImg:
+      "https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129803.jpg?w=740",
   },
   {
     _id: uuid(),
-    title: "Think and Grow Rich",
-    author: "Shiv Khera",
-    price: "1000",
-    categoryName: "fiction",
+    categoryName: "Smart home",
+    title: "Strandmon",
+    subtitle: "Wing Chair,grey",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+    price: 20000,
+    discountPrice: 17999,
+    categoryImg:
+      "https://img.freepik.com/free-psd/wooden-furniture-with-decorative-objects-lamp-interior-design-ideas_176382-1517.jpg?w=740",
+    productImg:
+      "https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129803.jpg?w=740",
+  },
+  {
+    _id: uuid(),
+    categoryName: "Mirrors",
+    title: "Strandmon",
+    subtitle: "Wing Chair,grey",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+    price: 20000,
+    discountPrice: 17999,
+    categoryImg:
+      "https://img.freepik.com/free-psd/wooden-furniture-with-decorative-objects-lamp-interior-design-ideas_176382-1517.jpg?w=740",
+    productImg:
+      "https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129803.jpg?w=740",
+  },
+  {
+    _id: uuid(),
+    categoryName: "Beds",
+    title: "Strandmon",
+    subtitle: "Wing Chair,grey",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+    price: 20000,
+    discountPrice: 17999,
+    categoryImg:
+      "https://img.freepik.com/free-psd/wooden-furniture-with-decorative-objects-lamp-interior-design-ideas_176382-1517.jpg?w=740",
+    productImg:
+      "https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129803.jpg?w=740",
+  },
+  {
+    _id: uuid(),
+    categoryName: "Charirs",
+    title: "Strandmon",
+    subtitle: "Wing Chair,grey",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+    price: 20000,
+    discountPrice: 17999,
+    categoryImg:
+      "https://img.freepik.com/free-psd/wooden-furniture-with-decorative-objects-lamp-interior-design-ideas_176382-1517.jpg?w=740",
+    productImg:
+      "https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129803.jpg?w=740",
+  },
+  {
+    _id: uuid(),
+    categoryName: "Table & Desk",
+    title: "Strandmon",
+    subtitle: "Wing Chair,grey",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+    price: 20000,
+    discountPrice: 17999,
+    categoryImg:
+      "https://img.freepik.com/free-psd/wooden-furniture-with-decorative-objects-lamp-interior-design-ideas_176382-1517.jpg?w=740",
+    productImg:
+      "https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129803.jpg?w=740",
+  },
+  {
+    _id: uuid(),
+    categoryName: "Sitorage & Organisation",
+    title: "Strandmon",
+    subtitle: "Wing Chair,grey",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+    price: 20000,
+    discountPrice: 17999,
+    categoryImg:
+      "https://img.freepik.com/free-psd/wooden-furniture-with-decorative-objects-lamp-interior-design-ideas_176382-1517.jpg?w=740",
+    productImg:
+      "https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129803.jpg?w=740",
   },
 ];

@@ -2,9 +2,6 @@
   padding: 2rem;
   background-color: var(--component-secondary-color);
   height: 10rem;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
 }
 
 .rights-align {

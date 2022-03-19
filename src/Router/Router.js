@@ -11,7 +11,7 @@ export default function () {
   return (
     <Routes>
       <Route exact path="/" component={Home} />
-      <Route path="/product" component={Products} />
+      <Route path="/products" element={<Products />} />
       <Route path="/wishlist" component={Wishlist} />
       <Route path="/cart" component={Cart} />
       <Route path="/login" component={Login} />

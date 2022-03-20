@@ -14,6 +14,7 @@ export const products = [
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
     price: 20000,
     discountPrice: 17999,
+    rating: 4,
     productImg:
       "https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129803.jpg?w=740",
   },
@@ -25,7 +26,7 @@ export const products = [
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
     price: 20000,
     discountPrice: 17999,
-
+    rating: 3,
     productImg:
       "https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129803.jpg?w=740",
   },
@@ -37,7 +38,7 @@ export const products = [
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
     price: 20000,
     discountPrice: 17999,
-
+    rating: 2,
     productImg:
       "https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129803.jpg?w=740",
   },
@@ -49,7 +50,7 @@ export const products = [
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
     price: 20000,
     discountPrice: 17999,
-
+    rating: 1,
     productImg:
       "https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129803.jpg?w=740",
   },
@@ -61,7 +62,7 @@ export const products = [
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
     price: 20000,
     discountPrice: 17999,
-
+    rating: 4,
     productImg:
       "https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129803.jpg?w=740",
   },
@@ -73,7 +74,7 @@ export const products = [
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
     price: 20000,
     discountPrice: 17999,
-
+    rating: 3,
     productImg:
       "https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129803.jpg?w=740",
   },
@@ -85,7 +86,7 @@ export const products = [
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
     price: 20000,
     discountPrice: 17999,
-
+    rating: 1,
     productImg:
       "https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129803.jpg?w=740",
   },
@@ -97,7 +98,7 @@ export const products = [
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
     price: 20000,
     discountPrice: 17999,
-
+    rating: 2,
     productImg:
       "https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129803.jpg?w=740",
   },

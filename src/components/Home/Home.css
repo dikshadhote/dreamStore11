@@ -1,0 +1,46 @@
+.category-card {
+  height: 17.87rem;
+}
+
+.category-card-img {
+  position: relative;
+  border-radius: 5px;
+}
+
+.carousel-banner {
+  background-color: var(--card-border-color);
+  margin: 1rem;
+  border-radius: 5px;
+}
+
+img.banner-img {
+  opacity: 0.8;
+  border-radius: 5px 0 0 5px;
+}
+
+.banner-text {
+  padding-left: 7rem;
+}
+
+.btn-shop {
+  border: 1px solid transparent;
+  font-weight: 600;
+  padding: 2rem;
+  cursor: pointer;
+  margin-left: 8rem;
+  margin-bottom: 18rem;
+}
+.card-category-txt.btn-shop.orange-bg {
+  background-color: var(--orange-color);
+  position: absolute;
+  bottom: 45rem;
+}
+.card-category-txt {
+  position: absolute;
+  bottom: 1rem;
+  padding: 10px;
+  border-radius: 4rem;
+  background-color: white;
+  font-size: 0.9rem;
+  color: black;
+}

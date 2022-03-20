@@ -5,3 +5,17 @@
 .clear-all:hover {
   color: var(--orange-color);
 }
+
+.sidebar-container {
+  width: 30rem;
+  margin-left: 3rem;
+}
+
+.main-container {
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.prod-img {
+  height: 45%;
+}

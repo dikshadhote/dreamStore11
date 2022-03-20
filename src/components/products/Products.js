@@ -1,127 +1,189 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Navbar, Footer } from "../components";
+import axios from "axios";
+import { products } from "../../backend/db/products";
+
 export default function Products() {
+  async function apiCall() {
+    const { data } = await axios.get("/api/products");
+    const { products } = data;
+    console.log(products);
+  }
+
+  useEffect(() => {
+    apiCall();
+  }, []);
+
   return (
     <div>
       <Navbar />
-      <div class="d-flex">
-        <div class="d-flex flex-column sidebar-container mt-2 ml-2">
-          <div class="d-flex flex-justify-space-between align-items-center mb-2">
+      <div className="d-flex">
+        <div className="d-flex flex-column sidebar-container mt-2 ml-2">
+          <div className="d-flex flex-justify-space-between align-items-center mb-2">
             <h4>Filters</h4>
-            <a class="underline clear-all" title="Clear all filters">
+            <a className="underline clear-all" title="Clear all filters">
               Clear all
             </a>
           </div>
-          <div class="mb-2">
-            <h4 class="pb-1">Price</h4>
+          <div className="mb-2">
+            <h4 className="pb-1">Price</h4>
             <input type="range" name="range" min="0" max="100" value="50" />
           </div>
-          <div class="mb-2">
-            <h4 class="pb-1">Category</h4>
-            <ul class="list-style-none">
+          <div className="mb-2">
+            <h4 className="pb-1">Category</h4>
+            <ul className="list-style-none">
               <li>
                 <input
                   id="checkbox-furniture"
-                  class="form-check-input"
+                  className="form-check-input"
                   type="checkbox"
-                  checked
                 />
-                <label for="checkbox-furniture">Furniture</label>
+                <label htmlFor="checkbox-furniture">Furniture</label>
               </li>
               <li>
                 <input
                   id="checkbox-appliance"
-                  class="form-check-input"
+                  className="form-check-input"
                   type="checkbox"
                 />
-                <label for="checkbox-appliance">Kitchen & appliances</label>
+                <label htmlFor="checkbox-appliance">Kitchen & appliances</label>
               </li>
               <li>
                 <input
                   id="checkbox-bed"
-                  class="form-check-input"
+                  className="form-check-input"
                   type="checkbox"
                 />
-                <label for="checkbox-bed">Beds & mattresses</label>
+                <label htmlFor="checkbox-bed">Beds & mattresses</label>
               </li>
               <li>
                 <input
                   id="checkbox-decor"
-                  class="form-check-input"
+                  className="form-check-input"
                   type="checkbox"
                 />
-                <label for="checkbox-decor">Decoration</label>
+                <label htmlFor="checkbox-decor">Decoration</label>
               </li>
             </ul>
           </div>
-          <div class="mb-2">
-            <h4 class="pb-1">Rating</h4>
-            <ul class="list-style-none">
+          <div className="mb-2">
+            <h4 className="pb-1">Rating</h4>
+            <ul className="list-style-none">
               <li>
                 <input
                   id="radio-four"
-                  class="form-check-input"
+                  className="form-check-input"
                   type="radio"
                   name="rating"
                   checked
                 />
-                <label for="radio-four">4 stars & above</label>
+                <label htmlFor="radio-four">4 stars & above</label>
               </li>
               <li>
                 <input
                   id="radio-three"
-                  class="form-check-input"
+                  className="form-check-input"
                   type="radio"
                   name="rating"
                 />
-                <label for="radio-three">3 stars & above</label>
+                <label htmlFor="radio-three">3 stars & above</label>
               </li>
               <li>
                 <input
                   id="radio-two"
-                  class="form-check-input"
+                  className="form-check-input"
                   type="radio"
                   name="rating"
                 />
-                <label for="radio-two">2 stars & above</label>
+                <label htmlFor="radio-two">2 stars & above</label>
               </li>
               <li>
                 <input
                   id="radio-one"
-                  class="form-check-input"
+                  className="form-check-input"
                   type="radio"
                   name="rating"
                 />
-                <label for="radio-one">1 stars & above</label>
+                <label htmlFor="radio-one">1 stars & above</label>
               </li>
             </ul>
           </div>
-          <div class="mb-2">
-            <h4 class="pb-1">Sort by</h4>
-            <ul class="list-style-none">
+          <div className="mb-2">
+            <h4 className="pb-1">Sort by</h4>
+            <ul className="list-style-none">
               <li>
                 <input
                   id="radio-low"
-                  class="form-check-input"
+                  className="form-check-input"
                   type="radio"
                   name="sort"
                   checked
                 />
-                <label for="radio-low">Price:Low to High</label>
+                <label htmlFor="radio-low">Price:Low to High</label>
               </li>
               <li>
                 <input
                   id="radio-high"
-                  class="form-check-input"
+                  className="form-check-input"
                   type="radio"
                   name="sort"
                 />
-                <label for="radio-high">Price:High to Low</label>
+                <label htmlFor="radio-high">Price:High to Low</label>
               </li>
             </ul>
           </div>
         </div>
+        <div class="m-2">
+          <h3 class="pb-1 pl-2 ">Products</h3>
+          <div class="d-flex align-items-stretch main-container flex-wrap">
+            {products.map(
+              (
+                {
+                  subtitle,
+                  productImg,
+                  categoryName,
+                  description,
+                  discountPrice,
+                },
+                index
+              ) => {
+                return (
+                  <div
+                    class="card flex-column card-vert card-shadow"
+                    key={index}
+                  >
+                    <span class="badge add-to-fav" title="Add to Wishlist">
+                      <span class="material-icons icon-red"> favorite </span>
+                    </span>
+                    <img src={productImg} class="card-img-vert" />
+                    <div class="card-body">
+                      <a class="card-title" href="#">
+                        {subtitle}
+                      </a>
+                      <span class="card-subtitle">{categoryName}</span>
+                      <p class="card-text">{description}</p>
+                      <div class="price-container">
+                        <span class="orignal-price">Rs 20000</span>
+                        <span class="discount-price">Rs {discountPrice}</span>
+                      </div>
+                      <button
+                        href="#"
+                        class="btn persian-blue-bg white-text-color btn-card btn-size"
+                      >
+                        <span class="material-icons card-btn-icon">
+                          shopping_cart
+                        </span>
+                        <p>Move to cart</p>
+                      </button>
+                    </div>
+                  </div>
+                );
+              }
+            )}
+          </div>
+        </div>
       </div>
+
       <Footer />
     </div>
   );

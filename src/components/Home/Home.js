@@ -9,7 +9,6 @@ export default function Home() {
     const { data } = await axios.get("/api/categories");
     const { categories } = data;
     setCategoriesData(categories);
-    console.log(categories);
   }
   useEffect(() => {
     apiCall();

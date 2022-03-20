@@ -1,6 +1,14 @@
 import React from "react";
 
 export default function FilterProduct() {
+  const categories = [
+    "Sofas & armchairs",
+    "Cookware & Table ware",
+    "Beds & mattresses",
+    "Storage & Organisation",
+  ];
+
+  const rating = [4, 3, 2, 1];
   return (
     <div className="d-flex flex-column sidebar-container mt-2 ml-2">
       <div className="d-flex flex-justify-space-between align-items-center mb-2">
@@ -16,80 +24,36 @@ export default function FilterProduct() {
       <div className="mb-2">
         <h4 className="pb-1">Category</h4>
         <ul className="list-style-none">
-          <li>
-            <input
-              id="checkbox-furniture"
-              className="form-check-input"
-              type="checkbox"
-            />
-            <label htmlFor="checkbox-furniture">Sofas & armchairs</label>
-          </li>
-          <li>
-            <input
-              id="checkbox-appliance"
-              className="form-check-input"
-              type="checkbox"
-            />
-            <label htmlFor="checkbox-appliance">Cookware & Table ware</label>
-          </li>
-          <li>
-            <input
-              id="checkbox-bed"
-              className="form-check-input"
-              type="checkbox"
-            />
-            <label htmlFor="checkbox-bed">Beds & mattresses</label>
-          </li>
-          <li>
-            <input
-              id="checkbox-decor"
-              className="form-check-input"
-              type="checkbox"
-            />
-            <label htmlFor="checkbox-decor">Storage & Organisation</label>
-          </li>
+          {categories.map((categoryName, index) => {
+            return (
+              <li>
+                <input
+                  id={index}
+                  className="form-check-input"
+                  type="checkbox"
+                />
+                <label htmlFor={index}>{categoryName}</label>
+              </li>
+            );
+          })}
         </ul>
       </div>
       <div className="mb-2">
         <h4 className="pb-1">Rating</h4>
         <ul className="list-style-none">
-          <li>
-            <input
-              id="radio-four"
-              className="form-check-input"
-              type="radio"
-              name="rating"
-              checked
-            />
-            <label htmlFor="radio-four">4 stars & above</label>
-          </li>
-          <li>
-            <input
-              id="radio-three"
-              className="form-check-input"
-              type="radio"
-              name="rating"
-            />
-            <label htmlFor="radio-three">3 stars & above</label>
-          </li>
-          <li>
-            <input
-              id="radio-two"
-              className="form-check-input"
-              type="radio"
-              name="rating"
-            />
-            <label htmlFor="radio-two">2 stars & above</label>
-          </li>
-          <li>
-            <input
-              id="radio-one"
-              className="form-check-input"
-              type="radio"
-              name="rating"
-            />
-            <label htmlFor="radio-one">1 stars & above</label>
-          </li>
+          {rating.map((rating, index) => {
+            return (
+              <li>
+                <input
+                  id={index}
+                  className="form-check-input"
+                  type="radio"
+                  name="rating"
+                />
+                <label htmlFor={index}>{rating} stars & above</label>
+              </li>
+            );
+          })}
         </ul>
       </div>
       <div className="mb-2">

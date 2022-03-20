@@ -18,7 +18,7 @@ export default function Products() {
   return (
     <div>
       <Navbar />
-      <div className="page-container">
+      <div className="productspage-container">
         <FilterProduct />
         <div class="m-2 ">
           <h3 class="pb-1 pl-2 ">Products</h3>

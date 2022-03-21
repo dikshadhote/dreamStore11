@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Navbar, Footer } from "../components";
 import axios from "axios";
-import { products } from "../../backend/db/products";
 import FilterProduct from "./FilterProduct";
 
 export default function Products() {

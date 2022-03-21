@@ -1,13 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar, Footer } from "../components";
 import axios from "axios";
 import { products } from "../../backend/db/products";
 import FilterProduct from "./FilterProduct";
 
 export default function Products() {
+  const [productsList, setProductList] = useState([]);
   async function apiCall() {
     const { data } = await axios.get("/api/products");
     const { products } = data;
+    setProductList(products);
   }
 
   useEffect(() => {
@@ -22,7 +24,7 @@ export default function Products() {
         <div class="m-2 ">
           <h3 class="pb-1 pl-2 ">Products</h3>
           <div class="d-flex align-items-stretch main-container flex-wrap">
-            {products.map(
+            {productsList.map(
               (
                 {
                   subtitle,

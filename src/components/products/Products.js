@@ -8,7 +8,6 @@ export default function Products() {
   async function apiCall() {
     const { data } = await axios.get("/api/products");
     const { products } = data;
-    console.log(products);
   }
 
   useEffect(() => {

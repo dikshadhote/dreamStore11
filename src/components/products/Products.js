@@ -21,9 +21,9 @@ export default function Products() {
       <Navbar />
       <div className="productspage-container">
         <FilterProduct />
-        <div class="m-2 ">
-          <h3 class="pb-1 pl-2 ">Products</h3>
-          <div class="d-flex align-items-stretch main-container flex-wrap">
+        <div className="m-2 ">
+          <h3 className="pb-1 pl-2 ">Products</h3>
+          <div className="d-flex align-items-stretch main-container flex-wrap">
             {productsList.map(
               (
                 {
@@ -37,28 +37,33 @@ export default function Products() {
               ) => {
                 return (
                   <div
-                    class="card flex-column card-vert card-shadow"
+                    className="card flex-column card-vert card-shadow"
                     key={index}
                   >
-                    <span class="badge add-to-fav" title="Add to Wishlist">
-                      <span class="material-icons icon-red"> favorite </span>
+                    <span className="badge add-to-fav" title="Add to Wishlist">
+                      <span className="material-icons icon-red">
+                        {" "}
+                        favorite{" "}
+                      </span>
                     </span>
-                    <img src={productImg} class="card-img-vert" />
-                    <div class="card-body">
-                      <a class="card-title" href="#">
+                    <img src={productImg} className="card-img-vert" />
+                    <div className="card-body">
+                      <a className="card-title" href="#">
                         {subtitle}
                       </a>
-                      <span class="card-subtitle">{categoryName}</span>
-                      <p class="card-text">{description}</p>
-                      <div class="price-container">
-                        <span class="orignal-price">Rs 20000</span>
-                        <span class="discount-price">Rs {discountPrice}</span>
+                      <span className="card-subtitle">{categoryName}</span>
+                      <p className="card-text">{description}</p>
+                      <div className="price-container">
+                        <span className="orignal-price">Rs 20000</span>
+                        <span className="discount-price">
+                          Rs {discountPrice}
+                        </span>
                       </div>
                       <button
                         href="#"
-                        class="btn persian-blue-bg white-text-color btn-card btn-size"
+                        className="btn persian-blue-bg white-text-color btn-card btn-size"
                       >
-                        <span class="material-icons card-btn-icon">
+                        <span className="material-icons card-btn-icon">
                           shopping_cart
                         </span>
                         <p>Move to cart</p>

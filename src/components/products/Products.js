@@ -31,6 +31,7 @@ export default function Products() {
                   categoryName,
                   description,
                   discountPrice,
+                  orignalPrice,
                 },
                 index
               ) => {
@@ -53,7 +54,7 @@ export default function Products() {
                       <span className="card-subtitle">{categoryName}</span>
                       <p className="card-text">{description}</p>
                       <div className="price-container">
-                        <span className="orignal-price">Rs 20000</span>
+                        <span className="orignal-price">{orignalPrice}</span>
                         <span className="discount-price">
                           Rs {discountPrice}
                         </span>

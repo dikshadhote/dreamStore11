@@ -1,0 +1,26 @@
+.clear-all {
+  cursor: pointer;
+}
+
+.clear-all:hover {
+  color: var(--orange-color);
+}
+
+.productspage-container {
+  display: grid;
+  grid-template-columns: 1.1fr 3.9fr;
+}
+
+.sidebar-container {
+  margin-left: 3rem;
+  margin-right: 1rem;
+}
+
+.main-container {
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.prod-img {
+  height: 45%;
+}

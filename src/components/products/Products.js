@@ -19,7 +19,7 @@ export default function Products() {
     <div>
       <Navbar />
       <div className="productspage-container">
-        <FilterProduct />
+        <FilterProduct products={productsList} />
         <div className="m-2 ">
           <h3 className="pb-1 pl-2 ">Products</h3>
           <div className="d-flex align-items-stretch main-container flex-wrap">

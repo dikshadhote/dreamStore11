@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useReducer } from "react";
+import { sortByPrice } from "../../utils/sort-functions";
 
-export default function FilterProduct() {
+const sortPriceReducer = (state, action) => {
+  console.log(action);
+  switch (action.type) {
+    case "sortByPrice":
+      return { ...state, sortBy: action.payload };
+    default:
+      return data;
+  }
+};
+
+export default function FilterProduct({ products }) {
+  console.log(products);
+
   const categories = [
     "Sofas & armchairs",
     "Cookware & Table ware",
     "Beds & mattresses",
     "Storage & Organisation",
   ];
+
+  const [state, dispatch] = useReducer(sortPriceReducer, {
+    sortBy: "",
+  });
+  const { sortBy } = state;
+
+  const filterProductByPrice = sortByPrice(products, sortBy);
 
   const rating = [4, 3, 2, 1];
   return (
@@ -65,7 +85,9 @@ export default function FilterProduct() {
               className="form-check-input"
               type="radio"
               name="sort"
-              checked
+              onChange={(e) =>
+                dispatch({ type: "sortByPrice", payload: e.target.value })
+              }
             />
             <label htmlFor="radio-low">Price:Low to High</label>
           </li>
@@ -75,6 +97,9 @@ export default function FilterProduct() {
               className="form-check-input"
               type="radio"
               name="sort"
+              onChange={(e) =>
+                dispatch({ type: "sortByPrice", payload: e.target.value })
+              }
             />
             <label htmlFor="radio-high">Price:High to Low</label>
           </li>

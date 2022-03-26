@@ -1,15 +1,11 @@
 import React from "react";
 import { useProductsFilter } from "../../context/products-filter-context";
 import { Navbar, Footer } from "../components";
-import { sortByPrice } from "../../utils/sort-functions";
 import FilterProduct from "./FilterProduct";
 
 export default function Products() {
-  const { productsList, state } = useProductsFilter();
-  const { sortBy } = state;
-  console.log(sortBy);
-  const filterProduct = sortByPrice(productsList, sortBy);
-  console.log(filterProduct);
+  const { filteredProducts } = useProductsFilter();
+
   return (
     <div>
       <Navbar />
@@ -18,7 +14,7 @@ export default function Products() {
         <div className="m-2 ">
           <h3 className="pb-1 pl-2 ">Products</h3>
           <div className="d-flex align-items-stretch main-container flex-wrap">
-            {filterProduct.map(
+            {filteredProducts.map(
               (
                 {
                   subtitle,
@@ -27,6 +23,7 @@ export default function Products() {
                   description,
                   discountPrice,
                   orignalPrice,
+                  rating,
                 },
                 index
               ) => {

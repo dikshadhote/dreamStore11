@@ -6,7 +6,12 @@ import {
   useContext,
 } from "react";
 import axios from "axios";
-import { sortByPrice, sortByRating } from "../utils/sort-functions";
+import {
+  sortByPrice,
+  sortByRating,
+  sortByCategory,
+  sortByRange,
+} from "../utils/sort-functions";
 const ProductFilterContext = createContext(null);
 
 const useProductsFilter = () => useContext(ProductFilterContext);
@@ -34,6 +39,10 @@ const ProductsFilterProvider = ({ children }) => {
         return { ...state, sortBy: action.payload };
       case "sortByRating":
         return { ...state, sortRating: action.payload };
+      case "sortByCategory":
+        return { ...state, sortCategory: action.payload };
+      case "sortByRange":
+        return { ...state, sortRange: action.payload };
       default:
         return data;
     }
@@ -42,6 +51,8 @@ const ProductsFilterProvider = ({ children }) => {
   const [stateProduct, dispatch] = useReducer(sortReducer, {
     sortBy: "",
     sortRating: null,
+    sortCategory: {},
+    sortRange: 0,
   });
 
   // if state changed ,it passes current state and productlist/filtered accumalator list to sort function
@@ -58,8 +69,12 @@ const ProductsFilterProvider = ({ children }) => {
   const filteredProducts = filterProductsBySorting(
     stateProduct,
     sortByPrice,
-    sortByRating
+    sortByRating,
+    sortByCategory,
+    sortByRange
   )(productsList);
+  console.log(filteredProducts);
+
   return (
     <ProductFilterContext.Provider
       value={{ filteredProducts, stateProduct, dispatch }}

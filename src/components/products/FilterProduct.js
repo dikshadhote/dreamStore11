@@ -24,7 +24,17 @@ export default function FilterProduct() {
       </div>
       <div className="mb-2">
         <h4 className="pb-1">Price</h4>
-        <input type="range" name="range" min="0" max="100" value="50" />
+        <input
+          type="range"
+          name="range"
+          min="0"
+          max="60000"
+          step="500"
+          defaultValue="30000"
+          onChange={(e) =>
+            dispatch({ type: "sortByRange", payload: e.target.value })
+          }
+        />
       </div>
       <div className="mb-2">
         <h4 className="pb-1">Category</h4>
@@ -36,6 +46,9 @@ export default function FilterProduct() {
                   id={index}
                   className="form-check-input"
                   type="checkbox"
+                  onChange={() =>
+                    dispatch({ type: "sortByCategory", payload: categoryName })
+                  }
                 />
                 <label htmlFor={index}>{categoryName}</label>
               </li>

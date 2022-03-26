@@ -1,19 +1,8 @@
-import React, { useReducer } from "react";
-import { sortByPrice } from "../../utils/sort-functions";
+import React from "react";
 
-const sortPriceReducer = (state, action) => {
-  console.log(action);
-  switch (action.type) {
-    case "sortByPrice":
-      return { ...state, sortBy: action.payload };
-    default:
-      return data;
-  }
-};
+import { useProductsFilter } from "../../context/products-filter-context";
 
-export default function FilterProduct({ products }) {
-  console.log(products);
-
+export default function FilterProduct() {
   const categories = [
     "Sofas & armchairs",
     "Cookware & Table ware",
@@ -21,12 +10,8 @@ export default function FilterProduct({ products }) {
     "Storage & Organisation",
   ];
 
-  const [state, dispatch] = useReducer(sortPriceReducer, {
-    sortBy: "",
-  });
-  const { sortBy } = state;
-
-  const filterProductByPrice = sortByPrice(products, sortBy);
+  const { state, dispatch } = useProductsFilter();
+  // const { sortBy } = state;
 
   const rating = [4, 3, 2, 1];
   return (
@@ -86,7 +71,7 @@ export default function FilterProduct({ products }) {
               type="radio"
               name="sort"
               onChange={(e) =>
-                dispatch({ type: "sortByPrice", payload: e.target.value })
+                dispatch({ type: "sortByPrice", payload: "low-to-high" })
               }
             />
             <label htmlFor="radio-low">Price:Low to High</label>
@@ -98,7 +83,7 @@ export default function FilterProduct({ products }) {
               type="radio"
               name="sort"
               onChange={(e) =>
-                dispatch({ type: "sortByPrice", payload: e.target.value })
+                dispatch({ type: "sortByPrice", payload: "high-to-low" })
               }
             />
             <label htmlFor="radio-high">Price:High to Low</label>

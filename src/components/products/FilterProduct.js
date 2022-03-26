@@ -10,8 +10,8 @@ export default function FilterProduct() {
     "Storage & Organisation",
   ];
 
-  const { state, dispatch } = useProductsFilter();
-  // const { sortBy } = state;
+  const { stateProduct, dispatch } = useProductsFilter();
+  // const { sortBy } = stateProduct;
 
   const rating = [4, 3, 2, 1];
   return (
@@ -31,7 +31,7 @@ export default function FilterProduct() {
         <ul className="list-style-none">
           {categories.map((categoryName, index) => {
             return (
-              <li>
+              <li key={index}>
                 <input
                   id={index}
                   className="form-check-input"
@@ -48,12 +48,15 @@ export default function FilterProduct() {
         <ul className="list-style-none">
           {rating.map((rating, index) => {
             return (
-              <li>
+              <li key={index}>
                 <input
                   id={index}
                   className="form-check-input"
                   type="radio"
                   name="rating"
+                  onChange={() =>
+                    dispatch({ type: "sortByRating", payload: rating })
+                  }
                 />
                 <label htmlFor={index}>{rating} stars & above</label>
               </li>
@@ -70,7 +73,7 @@ export default function FilterProduct() {
               className="form-check-input"
               type="radio"
               name="sort"
-              onChange={(e) =>
+              onChange={() =>
                 dispatch({ type: "sortByPrice", payload: "low-to-high" })
               }
             />
@@ -82,7 +85,7 @@ export default function FilterProduct() {
               className="form-check-input"
               type="radio"
               name="sort"
-              onChange={(e) =>
+              onChange={() =>
                 dispatch({ type: "sortByPrice", payload: "high-to-low" })
               }
             />

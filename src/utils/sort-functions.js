@@ -34,6 +34,13 @@ const sortByRating = (data, stateProduct) => {
   }
 };
 
-const sortByCategory = (data, category) => {};
+const sortByRange = (data, stateProduct) => {
+  const { sortRange } = stateProduct;
+  const sortArray = [...data];
+  if (sortRange != 0) {
+    return sortArray.filter((item) => Number(item.discountPrice) <= sortRange);
+  }
+  return sortArray;
+};
 
-export { sortByPrice, sortByCategory, sortByRating };
+export { sortByPrice, sortByCategory, sortByRating, sortByRange };

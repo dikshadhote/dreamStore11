@@ -1,29 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useProductsFilter } from "../../context/products-filter-context";
 import { Navbar, Footer } from "../components";
-import axios from "axios";
+import { sortByPrice } from "../../utils/sort-functions";
 import FilterProduct from "./FilterProduct";
 
 export default function Products() {
-  const [productsList, setProductList] = useState([]);
-  async function apiCall() {
-    const { data } = await axios.get("/api/products");
-    const { products } = data;
-    setProductList(products);
-  }
-
-  useEffect(() => {
-    apiCall();
-  }, []);
-
+  const { productsList, state } = useProductsFilter();
+  const { sortBy } = state;
+  console.log(sortBy);
+  const filterProduct = sortByPrice(productsList, sortBy);
+  console.log(filterProduct);
   return (
     <div>
       <Navbar />
       <div className="productspage-container">
-        <FilterProduct products={productsList} />
+        <FilterProduct />
         <div className="m-2 ">
           <h3 className="pb-1 pl-2 ">Products</h3>
           <div className="d-flex align-items-stretch main-container flex-wrap">
-            {productsList.map(
+            {filterProduct.map(
               (
                 {
                   subtitle,

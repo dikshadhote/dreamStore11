@@ -34,6 +34,8 @@ const ProductsFilterProvider = ({ children }) => {
   }, []);
 
   const sortReducer = (state, action) => {
+    console.log(action.type);
+    console.log(action.payload);
     switch (action.type) {
       case "sortByPrice":
         return { ...state, sortBy: action.payload };
@@ -51,7 +53,7 @@ const ProductsFilterProvider = ({ children }) => {
   const [stateProduct, dispatch] = useReducer(sortReducer, {
     sortBy: "",
     sortRating: null,
-    sortCategory: {},
+    sortCategory: [],
     sortRange: 0,
   });
 

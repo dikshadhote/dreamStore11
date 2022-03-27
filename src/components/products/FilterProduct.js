@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { useProductsFilter } from "../../context/products-filter-context";
 
@@ -10,8 +10,13 @@ export default function FilterProduct() {
     "Storage & Organisation",
   ];
 
-  const { stateProduct, dispatch } = useProductsFilter();
-  // const { sortBy } = stateProduct;
+  const { dispatch } = useProductsFilter();
+
+  const [selecteCheckboxArr, setSelectedCheckboxArr] = useState([]);
+
+  useEffect(() => {
+    dispatch({ type: "sortByCategory", payload: selecteCheckboxArr });
+  }, [selecteCheckboxArr]);
 
   const rating = [4, 3, 2, 1];
   return (
@@ -46,9 +51,13 @@ export default function FilterProduct() {
                   id={index}
                   className="form-check-input"
                   type="checkbox"
-                  onChange={() =>
-                    dispatch({ type: "sortByCategory", payload: categoryName })
-                  }
+                  onChange={() => {
+                    // detect which checkbox is ticked and store in array. Dispatch with help of useEffect when array is changed.
+                    setSelectedCheckboxArr((selecteCheckboxArr) => [
+                      ...selecteCheckboxArr,
+                      categoryName,
+                    ]);
+                  }}
                 />
                 <label htmlFor={index}>{categoryName}</label>
               </li>

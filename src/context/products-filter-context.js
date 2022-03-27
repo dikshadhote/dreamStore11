@@ -34,17 +34,31 @@ const ProductsFilterProvider = ({ children }) => {
   }, []);
 
   const sortReducer = (state, action) => {
-    console.log(action.type);
-    console.log(action.payload);
     switch (action.type) {
       case "sortByPrice":
         return { ...state, sortBy: action.payload };
       case "sortByRating":
         return { ...state, sortRating: action.payload };
       case "sortByCategory":
-        return { ...state, sortCategory: action.payload };
+        // the category coming from action.payload if not present remove from array else add selected category to arr
+        if (state.sortCategory.includes(action.payload)) {
+          return state.sortCategory.filter(
+            (selectedCategory) => selectedCategory !== action.payload
+          );
+        }
+        return {
+          ...state,
+          sortCategory: [...state.sortCategory, action.payload],
+        };
       case "sortByRange":
         return { ...state, sortRange: action.payload };
+      case "clearAllFilters":
+        return {
+          sortBy: "",
+          sortRating: null,
+          sortCategory: [],
+          sortRange: 0,
+        };
       default:
         return data;
     }
@@ -75,7 +89,6 @@ const ProductsFilterProvider = ({ children }) => {
     sortByCategory,
     sortByRange
   )(productsList);
-  console.log(filteredProducts);
 
   return (
     <ProductFilterContext.Provider

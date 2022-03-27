@@ -10,20 +10,20 @@ export default function FilterProduct() {
     "Storage & Organisation",
   ];
 
-  const { dispatch } = useProductsFilter();
-
-  const [selecteCheckboxArr, setSelectedCheckboxArr] = useState([]);
-
-  useEffect(() => {
-    dispatch({ type: "sortByCategory", payload: selecteCheckboxArr });
-  }, [selecteCheckboxArr]);
+  const { stateProduct, dispatch } = useProductsFilter();
 
   const rating = [4, 3, 2, 1];
   return (
     <div className="d-flex flex-column sidebar-container mt-2 ml-2">
       <div className="d-flex flex-justify-space-between align-items-center mb-2">
         <h4>Filters</h4>
-        <a className="underline clear-all" title="Clear all filters">
+        <a
+          className="underline clear-all"
+          title="Clear all filters"
+          onClick={() => {
+            dispatch({ type: "clearAllFilters" });
+          }}
+        >
           Clear all
         </a>
       </div>
@@ -51,12 +51,10 @@ export default function FilterProduct() {
                   id={index}
                   className="form-check-input"
                   type="checkbox"
+                  checked={stateProduct.sortCategory.includes(categoryName)}
                   onChange={() => {
                     // detect which checkbox is ticked and store in array. Dispatch with help of useEffect when array is changed.
-                    setSelectedCheckboxArr((selecteCheckboxArr) => [
-                      ...selecteCheckboxArr,
-                      categoryName,
-                    ]);
+                    dispatch({ type: "sortByCategory", payload: categoryName });
                   }}
                 />
                 <label htmlFor={index}>{categoryName}</label>
@@ -76,6 +74,7 @@ export default function FilterProduct() {
                   className="form-check-input"
                   type="radio"
                   name="rating"
+                  checked={stateProduct.sortRating === rating}
                   onChange={() =>
                     dispatch({ type: "sortByRating", payload: rating })
                   }
@@ -95,6 +94,7 @@ export default function FilterProduct() {
               className="form-check-input"
               type="radio"
               name="sort"
+              checked={stateProduct.sortBy === "low-to-high"}
               onChange={() =>
                 dispatch({ type: "sortByPrice", payload: "low-to-high" })
               }
@@ -107,6 +107,7 @@ export default function FilterProduct() {
               className="form-check-input"
               type="radio"
               name="sort"
+              checked={stateProduct.sortBy === "high-to-low"}
               onChange={() =>
                 dispatch({ type: "sortByPrice", payload: "high-to-low" })
               }

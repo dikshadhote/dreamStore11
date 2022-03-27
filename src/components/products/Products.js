@@ -6,14 +6,13 @@ import FilterProduct from "./FilterProduct";
 export default function Products() {
   const { filteredProducts } = useProductsFilter();
 
-  console.log(filteredProducts);
   return (
     <div>
       <Navbar />
       <div className="productspage-container">
         <FilterProduct />
         <div className="m-2 ">
-          <h3 className="pb-1 pl-2 ">Products</h3>
+          <h3 className="pb-1 pl-2 ">Products ({filteredProducts.length})</h3>
           <div className="d-flex align-items-stretch main-container flex-wrap">
             {}
             {filteredProducts.map(

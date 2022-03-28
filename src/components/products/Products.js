@@ -14,7 +14,6 @@ export default function Products() {
         <div className="m-2 ">
           <h3 className="pb-1 pl-2 ">Products ({filteredProducts.length})</h3>
           <div className="d-flex align-items-stretch main-container flex-wrap">
-            {}
             {filteredProducts.map(
               (
                 {

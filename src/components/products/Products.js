@@ -1,19 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useProductsFilter } from "../../context/products-filter-context";
 import { Navbar, Footer } from "../components";
-import axios from "axios";
 import FilterProduct from "./FilterProduct";
 
 export default function Products() {
-  const [productsList, setProductList] = useState([]);
-  async function apiCall() {
-    const { data } = await axios.get("/api/products");
-    const { products } = data;
-    setProductList(products);
-  }
-
-  useEffect(() => {
-    apiCall();
-  }, []);
+  const { filteredProducts } = useProductsFilter();
 
   return (
     <div>
@@ -21,9 +12,9 @@ export default function Products() {
       <div className="productspage-container">
         <FilterProduct />
         <div className="m-2 ">
-          <h3 className="pb-1 pl-2 ">Products</h3>
+          <h3 className="pb-1 pl-2 ">Products ({filteredProducts.length})</h3>
           <div className="d-flex align-items-stretch main-container flex-wrap">
-            {productsList.map(
+            {filteredProducts.map(
               (
                 {
                   subtitle,
@@ -31,6 +22,8 @@ export default function Products() {
                   categoryName,
                   description,
                   discountPrice,
+                  orignalPrice,
+                  rating,
                 },
                 index
               ) => {
@@ -53,7 +46,7 @@ export default function Products() {
                       <span className="card-subtitle">{categoryName}</span>
                       <p className="card-text">{description}</p>
                       <div className="price-container">
-                        <span className="orignal-price">Rs 20000</span>
+                        <span className="orignal-price">{orignalPrice}</span>
                         <span className="discount-price">
                           Rs {discountPrice}
                         </span>

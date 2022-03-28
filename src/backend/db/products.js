@@ -90,7 +90,7 @@ export const products = [
       "Round base sink mirror which will add asthetics to your bathroom",
 
     discountPrice: 3999,
-    rating: 1,
+    rating: 5,
     productImg:
       "https://img.freepik.com/free-vector/bathroom-boiler-water-heater-washbasin-tub_107791-676.jpg?t=st=1647774498~exp=1647775098~hmac=d27e583e19bece4c7eee6ce6dbad0a291e63bb8447ad57bc8ef6feb36a3fbd88&w=826",
   },
@@ -151,7 +151,7 @@ export const products = [
       "A comfortable armchair available in yellow, grey, black color",
 
     discountPrice: 6999,
-    rating: 4,
+    rating: 5,
     productImg:
       "https://img.freepik.com/free-psd/picture-frame-mockup-psd-hanging-modern-living-room-home-decor-interior_53876-114536.jpg?t=st=1647785400~exp=1647786000~hmac=245f42e82a176e50cba7894afd29ea0eb8f9776a567d45776274deadfd50e6f4&w=740",
   },

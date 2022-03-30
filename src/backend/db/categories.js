@@ -14,31 +14,13 @@ export const categories = [
   },
   {
     _id: uuid(),
-    categoryName: "Cookware and Table ware",
+    categoryName: "Cookware & Table ware",
     categoryImg:
       "https://img.freepik.com/free-psd/wooden-furniture-with-decorative-objects-lamp-interior-design-ideas_176382-1517.jpg?w=740",
   },
   {
     _id: uuid(),
-    categoryName: "Smart home",
-    categoryImg:
-      "https://img.freepik.com/free-psd/wooden-furniture-with-decorative-objects-lamp-interior-design-ideas_176382-1517.jpg?w=740",
-  },
-  {
-    _id: uuid(),
-    categoryName: "Mirrors",
-    categoryImg:
-      "https://img.freepik.com/free-psd/wooden-furniture-with-decorative-objects-lamp-interior-design-ideas_176382-1517.jpg?w=740",
-  },
-  {
-    _id: uuid(),
-    categoryName: "Beds",
-    categoryImg:
-      "https://img.freepik.com/free-psd/wooden-furniture-with-decorative-objects-lamp-interior-design-ideas_176382-1517.jpg?w=740",
-  },
-  {
-    _id: uuid(),
-    categoryName: "Chairs",
+    categoryName: "Beds & mattresses",
     categoryImg:
       "https://img.freepik.com/free-psd/wooden-furniture-with-decorative-objects-lamp-interior-design-ideas_176382-1517.jpg?w=740",
   },
@@ -51,6 +33,24 @@ export const categories = [
   {
     _id: uuid(),
     categoryName: "Sofas & armchairs",
+    categoryImg:
+      "https://img.freepik.com/free-psd/wooden-furniture-with-decorative-objects-lamp-interior-design-ideas_176382-1517.jpg?w=740",
+  },
+  {
+    _id: uuid(),
+    categoryName: "Cookware & Table ware",
+    categoryImg:
+      "https://img.freepik.com/free-psd/wooden-furniture-with-decorative-objects-lamp-interior-design-ideas_176382-1517.jpg?w=740",
+  },
+  {
+    _id: uuid(),
+    categoryName: "Storage & Organisation",
+    categoryImg:
+      "https://img.freepik.com/free-psd/wooden-furniture-with-decorative-objects-lamp-interior-design-ideas_176382-1517.jpg?w=740",
+  },
+  {
+    _id: uuid(),
+    categoryName: "Beds & mattresses",
     categoryImg:
       "https://img.freepik.com/free-psd/wooden-furniture-with-decorative-objects-lamp-interior-design-ideas_176382-1517.jpg?w=740",
   },

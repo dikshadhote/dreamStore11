@@ -44,7 +44,11 @@ export default function Home() {
             <div className="card flex-column card-vert card-shadow" key={index}>
               <img src={categoryImg} className="category-card-img" />
               <div className="d-flex flex-justify-center">
-                <Link className="card-category-txt" to="/products">
+                <Link
+                  className="card-category-txt"
+                  to="/products"
+                  state={categoryName}
+                >
                   {categoryName}
                 </Link>
               </div>

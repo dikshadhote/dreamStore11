@@ -42,9 +42,12 @@ const ProductsFilterProvider = ({ children }) => {
       case "sortByCategory":
         // the category coming from action.payload if not present remove from array else add selected category to arr
         if (state.sortCategory.includes(action.payload)) {
-          return state.sortCategory.filter(
-            (selectedCategory) => selectedCategory !== action.payload
-          );
+          return {
+            ...state,
+            sortCategory: state.sortCategory.filter(
+              (selectedCategory) => selectedCategory !== action.payload
+            ),
+          };
         }
         return {
           ...state,

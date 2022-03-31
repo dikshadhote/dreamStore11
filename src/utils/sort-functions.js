@@ -47,9 +47,9 @@ const sortByCategory = (data, stateProduct) => {
   //  sortCategory.includes(item.categoryName): if the selected categories match in data then return those
   const { sortCategory } = stateProduct;
   const sortArray = [...data];
-  if (sortCategory.length != 0) {
-    return sortArray.filter((item) => sortCategory.includes(item.categoryName));
-  }
+  // if (sortCategory.length != 0) {
+  //   return sortArray.filter((item) => sortCategory.includes(item.categoryName));
+  // }
   return sortArray;
 };
 export { sortByPrice, sortByCategory, sortByRating, sortByRange };

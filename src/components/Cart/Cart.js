@@ -1,5 +1,10 @@
 import React from "react";
-
+import { Navbar, Footer } from "../components";
 export default function Cart() {
-  return <div>Cart</div>;
+  return (
+    <div>
+      <Navbar />
+      <Footer />
+    </div>
+  );
 }

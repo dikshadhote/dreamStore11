@@ -53,7 +53,6 @@ export default function FilterProduct() {
                   type="checkbox"
                   checked={stateProduct.sortCategory.includes(categoryName)}
                   onChange={() => {
-                    // detect which checkbox is ticked and store in array. Dispatch with help of useEffect when array is changed.
                     dispatch({ type: "sortByCategory", payload: categoryName });
                   }}
                 />

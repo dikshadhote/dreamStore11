@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { useProductsFilter } from "../../context/products-filter-context";
 import { useCart } from "../../context/cart-context";
 import { Navbar, Footer } from "../components";
 import FilterProduct from "./FilterProduct";
-import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
 export default function Products() {
-  const { filteredProducts } = useProductsFilter();
-  const value = useCart();
-  console.log(value);
+  const { filteredProducts, dispatch } = useProductsFilter();
+  const location = useLocation();
+  const categoryName = location?.state;
+
+  useEffect(() => {
+    if (categoryName) {
+      dispatch({ type: "sortByCategory", payload: categoryName });
+    }
+  }, []);
+
   return (
     <div>
       <Navbar />

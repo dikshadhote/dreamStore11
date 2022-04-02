@@ -3,10 +3,11 @@ import { useProductsFilter } from "../../context/products-filter-context";
 import { useCart } from "../../context/cart-context";
 import { Navbar, Footer } from "../components";
 import FilterProduct from "./FilterProduct";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 export default function Products() {
   const { filteredProducts, dispatch } = useProductsFilter();
+  const { dispatchCart } = useCart();
   const location = useLocation();
   const categoryName = location?.state;
 

@@ -1,18 +1,13 @@
-import {
-  useEffect,
-  useReducer,
-  useState,
-  createContext,
-  useContext,
-} from "react";
+import { useReducer, createContext, useContext } from "react";
 
 const CartContext = createContext(null);
 
 const cartReducer = (stateCart, action) => {
   console.log(action.type);
+  console.log(action.payload);
   switch (action.type) {
     case "ADD_TO_CART":
-      return { ...stateCart, addToCart: action.payload };
+      return { ...stateCart, cart: action.payload };
     case "REMOVE_TO_CART":
       return;
     case "INCREASE_QUANTITY":
@@ -23,10 +18,7 @@ const cartReducer = (stateCart, action) => {
 
 const CartProvider = ({ children }) => {
   const [stateCart, dispatchCart] = useReducer(cartReducer, {
-    addToCart: [],
-    removeFromCart: [],
-    increaseQuantity: 0,
-    decreaseQuantity: 0,
+    cart: [],
   });
 
   return (

@@ -44,6 +44,9 @@ export default function Cart() {
                     <span
                       className="badge cancel-card"
                       title="Remove from cart"
+                      onClick={() =>
+                        dispatchCart({ type: "REMOVE_TO_CART", payload: _id })
+                      }
                     >
                       <span className="material-icons"> cancel </span>
                     </span>

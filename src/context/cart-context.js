@@ -3,6 +3,8 @@ import { useReducer, createContext, useContext } from "react";
 const CartContext = createContext(null);
 
 const cartReducer = (stateCart, action) => {
+  console.log(action.type);
+  console.log(action.payload);
   switch (action.type) {
     case "ADD_TO_CART":
       return {
@@ -10,7 +12,12 @@ const cartReducer = (stateCart, action) => {
         cart: [...stateCart.cart, { product: action.payload }],
       };
     case "REMOVE_TO_CART":
-      return;
+      return {
+        ...stateCart,
+        cart: stateCart.cart.filter(
+          (item) => item.product._id !== action.payload
+        ),
+      };
     case "INCREASE_QUANTITY":
       return { ...stateCart, quantity: stateCart.quantity + 1 };
     case "DECREASE_QUANTITY":

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar, Footer } from "../components";
 import { useCart } from "../../context/cart-context";
 import { Link } from "react-router-dom";
@@ -6,6 +6,18 @@ export default function Cart() {
   const { stateCart, dispatchCart } = useCart();
   console.log(stateCart);
   const { cart } = stateCart;
+  const [originalPrice, setOriginalPrice] = useState(0);
+  const [discountPrice, setDiscountPrice] = useState(0);
+  const [toalPrice, setTotalPrice] = useState(0);
+
+  useEffect(() => {
+    setOriginalPrice(
+      cart.reduce((acc, curr) => acc + Number(curr.product.orignalPrice), 0)
+    );
+    setDiscountPrice(
+      cart.reduce((acc, curr) => acc + Number(curr.product.discountPrice), 0)
+    );
+  }, [cart]);
 
   return (
     <div>
@@ -116,11 +128,11 @@ export default function Cart() {
                 <h3 className="p-1">Price details</h3>
                 <span className="d-flex flex-justify-space-between">
                   <p className="p-1">Orignal Price</p>
-                  <p className="p-1">Rs{}</p>
+                  <p className="p-1">Rs{originalPrice}</p>
                 </span>
                 <span className="d-flex flex-justify-space-between">
                   <p className="p-1">Price after discount</p>
-                  <p className="p-1">-Rs{}</p>
+                  <p className="p-1">Rs{discountPrice}</p>
                 </span>
                 <span className="d-flex flex-justify-space-between">
                   <p className="p-1">Delivery charges</p>
@@ -132,7 +144,9 @@ export default function Cart() {
                 </span>
                 <span className="d-flex flex-justify-space-between total-amt pt-1">
                   <p className="p-1 font-weight-bold">Total Amount</p>
-                  <p className="p-1 font-weight-bold"></p>
+                  <p className="p-1 font-weight-bold">
+                    {originalPrice - discountPrice - 300}
+                  </p>
                 </span>
               </div>
             </div>

@@ -9,6 +9,12 @@
   margin-right: 3rem;
 }
 
+.card-container {
+  overflow-y: auto;
+  height: 80vh;
+  background-color: var(--text-white-color);
+}
+
 .apply-btn {
   border-radius: 4px;
   padding: 2px;

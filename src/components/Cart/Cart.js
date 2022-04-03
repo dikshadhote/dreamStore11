@@ -27,7 +27,7 @@ export default function Cart() {
           </div>
         ) : (
           <div className="card-checkout-container">
-            <div className="d-flex flex-column">
+            <div className="d-flex flex-column card-container">
               {cart.map((item) => {
                 console.log(item);
                 const {
@@ -40,7 +40,6 @@ export default function Cart() {
                   rating,
                   subtitle,
                 } = item.product;
-                console.log(categoryName);
                 return (
                   <div className="card hori-card card-shadow" key={_id}>
                     <span
@@ -116,11 +115,11 @@ export default function Cart() {
               <div className="d-flex flex-column card-shadow card-checkout ml-2">
                 <h3 className="p-1">Price details</h3>
                 <span className="d-flex flex-justify-space-between">
-                  <p className="p-1">Price</p>
+                  <p className="p-1">Orignal Price</p>
                   <p className="p-1">Rs{}</p>
                 </span>
                 <span className="d-flex flex-justify-space-between">
-                  <p className="p-1">Discount</p>
+                  <p className="p-1">Price after discount</p>
                   <p className="p-1">-Rs{}</p>
                 </span>
                 <span className="d-flex flex-justify-space-between">

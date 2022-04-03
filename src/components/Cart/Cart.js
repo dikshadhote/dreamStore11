@@ -4,18 +4,24 @@ import { useCart } from "../../context/cart-context";
 import { Link } from "react-router-dom";
 export default function Cart() {
   const { stateCart, dispatchCart } = useCart();
-  console.log(stateCart);
   const { cart } = stateCart;
   const [originalPrice, setOriginalPrice] = useState(0);
   const [discountPrice, setDiscountPrice] = useState(0);
-  const [toalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     setOriginalPrice(
-      cart.reduce((acc, curr) => acc + Number(curr.product.orignalPrice), 0)
+      cart.reduce(
+        (acc, curr) =>
+          acc + Number(curr.product.orignalPrice) * Number(curr.quantity),
+        0
+      )
     );
     setDiscountPrice(
-      cart.reduce((acc, curr) => acc + Number(curr.product.discountPrice), 0)
+      cart.reduce(
+        (acc, curr) =>
+          acc + Number(curr.product.discountPrice) * Number(curr.quantity),
+        0
+      )
     );
   }, [cart]);
 
@@ -41,7 +47,6 @@ export default function Cart() {
           <div className="card-checkout-container">
             <div className="d-flex flex-column card-container">
               {cart.map((item) => {
-                console.log(item);
                 const {
                   categoryName,
                   description,

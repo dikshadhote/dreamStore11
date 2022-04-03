@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 export default function Cart() {
   const { stateCart, dispatchCart } = useCart();
   console.log(stateCart);
-  const { cart, quantity } = stateCart;
+  const { cart } = stateCart;
 
   return (
     <div>
       <Navbar />
       <div className="m-2">
         <div className="d-flex flex-justify-center">
-          <h3 className="pb-1 pl-2 ">My Cart</h3>
+          <h3 className="pb-1 pl-2 ">My Cart ({stateCart.cart.length}) </h3>
         </div>
         {cart.length == 0 ? (
           <div className="d-flex flex-justify-center ">
@@ -29,6 +29,7 @@ export default function Cart() {
           <div className="card-checkout-container">
             <div className="d-flex flex-column">
               {cart.map((item) => {
+                console.log(item);
                 const {
                   categoryName,
                   description,
@@ -39,7 +40,7 @@ export default function Cart() {
                   rating,
                   subtitle,
                 } = item.product;
-
+                console.log(categoryName);
                 return (
                   <div className="card hori-card card-shadow" key={_id}>
                     <span
@@ -64,11 +65,9 @@ export default function Cart() {
                       <span className="card-subtitle">{categoryName}</span>
                       <p className="card-text">{description}</p>
                       <div className="price-container">
-                        <span className="orignal-price">
-                          Rs {discountPrice}
-                        </span>
+                        <span className="orignal-price">Rs {orignalPrice}</span>
                         <span className="discount-price">
-                          Rs {orignalPrice}
+                          Rs {discountPrice}
                         </span>
                       </div>
                       <div className="d-flex align-items-center flex-justify-space-between">
@@ -88,17 +87,19 @@ export default function Cart() {
                             onClick={() =>
                               dispatchCart({
                                 type: "DECREASE_QUANTITY",
+                                payload: _id,
                               })
                             }
                           >
                             -
                           </button>
-                          <span className="p-1">{quantity}</span>
+                          <span className="p-1">{item.quantity}</span>
                           <button
                             className="inc-dec-btn"
                             onClick={() =>
                               dispatchCart({
                                 type: "INCREASE_QUANTITY",
+                                payload: _id,
                               })
                             }
                           >
@@ -114,25 +115,25 @@ export default function Cart() {
             <div className=" mt-2 mb-2">
               <div className="d-flex flex-column card-shadow card-checkout ml-2">
                 <h3 className="p-1">Price details</h3>
-                <span class="d-flex flex-justify-space-between">
-                  <p class="p-1">Price</p>
-                  <p class="p-1">Rs{}</p>
+                <span className="d-flex flex-justify-space-between">
+                  <p className="p-1">Price</p>
+                  <p className="p-1">Rs{}</p>
                 </span>
-                <span class="d-flex flex-justify-space-between">
-                  <p class="p-1">Discount</p>
-                  <p class="p-1">-Rs{}</p>
+                <span className="d-flex flex-justify-space-between">
+                  <p className="p-1">Discount</p>
+                  <p className="p-1">-Rs{}</p>
                 </span>
-                <span class="d-flex flex-justify-space-between">
-                  <p class="p-1">Delivery charges</p>
-                  <p class="p-1">-Rs300</p>
+                <span className="d-flex flex-justify-space-between">
+                  <p className="p-1">Delivery charges</p>
+                  <p className="p-1">-Rs300</p>
                 </span>
-                <span class="d-flex flex-justify-space-between align-items-center">
-                  <p class="p-1 font-weight-bold">Coupon</p>
-                  <a class="p-1 orange-bg btn-shop apply-btn">Apply</a>
+                <span className="d-flex flex-justify-space-between align-items-center">
+                  <p className="p-1 font-weight-bold">Coupon</p>
+                  <a className="p-1 orange-bg btn-shop apply-btn">Apply</a>
                 </span>
-                <span class="d-flex flex-justify-space-between total-amt pt-1">
-                  <p class="p-1 font-weight-bold">Total Amount</p>
-                  <p class="p-1 font-weight-bold"></p>
+                <span className="d-flex flex-justify-space-between total-amt pt-1">
+                  <p className="p-1 font-weight-bold">Total Amount</p>
+                  <p className="p-1 font-weight-bold"></p>
                 </span>
               </div>
             </div>

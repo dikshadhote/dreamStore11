@@ -18,3 +18,18 @@
 .total-amt {
   border-top: 1px solid var(--card-border-color);
 }
+
+.empty-cart {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.btn-shop-cart {
+  padding: 10px;
+  border-radius: 4rem;
+  font-weight: 600;
+  color: var(--text-black-color);
+  margin-left: 7rem;
+}

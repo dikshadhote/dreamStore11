@@ -15,14 +15,15 @@ export default function Cart() {
           <h3 className="pb-1 pl-2 ">My Cart</h3>
         </div>
         {cart.length == 0 ? (
-          <div>
-            Please add items to your Cart
-            <Link
-              className="card-category-txt orange-bg btn-shop"
-              to="/products"
-            >
-              Shop now
-            </Link>
+          <div className="d-flex flex-justify-center ">
+            <div className="empty-cart">
+              <p className="fs-3 mb-3">Please add items to your Cart</p>
+              <div>
+                <Link to="/products" className="orange-bg btn-shop-cart">
+                  shop now
+                </Link>
+              </div>
+            </div>
           </div>
         ) : (
           <div className="card-checkout-container">
@@ -113,6 +114,26 @@ export default function Cart() {
             <div className=" mt-2 mb-2">
               <div className="d-flex flex-column card-shadow card-checkout ml-2">
                 <h3 className="p-1">Price details</h3>
+                <span class="d-flex flex-justify-space-between">
+                  <p class="p-1">Price</p>
+                  <p class="p-1">Rs{}</p>
+                </span>
+                <span class="d-flex flex-justify-space-between">
+                  <p class="p-1">Discount</p>
+                  <p class="p-1">-Rs{}</p>
+                </span>
+                <span class="d-flex flex-justify-space-between">
+                  <p class="p-1">Delivery charges</p>
+                  <p class="p-1">-Rs300</p>
+                </span>
+                <span class="d-flex flex-justify-space-between align-items-center">
+                  <p class="p-1 font-weight-bold">Coupon</p>
+                  <a class="p-1 orange-bg btn-shop apply-btn">Apply</a>
+                </span>
+                <span class="d-flex flex-justify-space-between total-amt pt-1">
+                  <p class="p-1 font-weight-bold">Total Amount</p>
+                  <p class="p-1 font-weight-bold"></p>
+                </span>
               </div>
             </div>
           </div>

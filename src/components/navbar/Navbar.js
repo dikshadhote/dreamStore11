@@ -37,9 +37,11 @@ export default function Navbar() {
               <span className="material-icons mr-1 ml-1" title="cart">
                 shopping_cart
               </span>
-              <span className="badge orange-bg position-mail-badge small-badge">
-                <small className="number">{cart.length}</small>
-              </span>
+              {cart.length > 0 ? (
+                <span className="badge orange-bg position-mail-badge small-badge">
+                  <small className="number">{cart.length}</small>
+                </span>
+              ) : null}
             </div>
           </Link>
           <Link className="black-text-color" to="/login">

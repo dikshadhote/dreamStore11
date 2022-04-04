@@ -3,9 +3,12 @@ import "./../../App.css";
 import { Link } from "react-router-dom";
 import storeLogo from "../../assets/location.png";
 import { useCart } from "../../context/cart-context";
+import { useWishlist } from "../../context/wishlist-context";
 export default function Navbar() {
   const { stateCart } = useCart();
   const { cart } = stateCart;
+  const { stateWishlist } = useWishlist();
+  const { wishlist } = stateWishlist;
   return (
     <div>
       {" "}
@@ -28,9 +31,16 @@ export default function Navbar() {
         </div>
         <div className="nav-items">
           <Link className="black-text-color" to="/wishlist">
-            <span className="material-icons mr-1" title="wishlist">
-              favorite
-            </span>
+            <div className="icon-container">
+              <span className="material-icons mr-1 ml-1" title="wishlist">
+                favorite
+              </span>
+              {wishlist.length > 0 ? (
+                <span className="badge orange-bg position-mail-badge small-badge">
+                  <small className="number">{wishlist.length}</small>
+                </span>
+              ) : null}
+            </div>
           </Link>
           <Link className="black-text-color" to="/cart">
             <div className="icon-container">

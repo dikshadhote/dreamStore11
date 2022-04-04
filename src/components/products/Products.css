@@ -24,3 +24,7 @@
 .prod-img {
   height: 45%;
 }
+
+.badge-hov:hover {
+  color: var(--text-black-color);
+}

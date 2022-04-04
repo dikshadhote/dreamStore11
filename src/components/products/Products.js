@@ -44,7 +44,7 @@ export default function Products() {
                   key={_id}
                 >
                   <Link
-                    className="badge add-to-fav"
+                    className="badge add-to-fav badge-hov"
                     title="Add to Wishlist"
                     to="/wishlist"
                     onClick={() =>

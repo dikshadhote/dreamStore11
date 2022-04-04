@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Navbar, Footer } from "../components";
 import { useCart } from "../../context/cart-context";
+import { useWishlist } from "../../context/wishlist-context";
 import { Link } from "react-router-dom";
 export default function Cart() {
   const { stateCart, dispatchCart } = useCart();
   const { cart } = stateCart;
+  const { dispatchWishlist } = useWishlist();
   const [originalPrice, setOriginalPrice] = useState(0);
   const [discountPrice, setDiscountPrice] = useState(0);
 
@@ -57,6 +59,7 @@ export default function Cart() {
                   rating,
                   subtitle,
                 } = item.product;
+
                 return (
                   <div className="card hori-card card-shadow" key={_id}>
                     <span
@@ -87,15 +90,22 @@ export default function Cart() {
                         </span>
                       </div>
                       <div className="d-flex align-items-center flex-justify-space-between">
-                        <button
+                        <Link
                           href="#"
                           className="btn persian-blue-bg white-text-color btn-card "
+                          onClick={() =>
+                            dispatchWishlist({
+                              type: "ADD_TO_WISHLIST",
+                              payload: item.product,
+                            })
+                          }
+                          to="/wishlist"
                         >
                           <span className="material-icons card-btn-icon">
                             favorite
                           </span>
                           <p>Move to Wishlist</p>
-                        </button>
+                        </Link>
                         <div className="ml-1 mb-1 d-flex align-items-center">
                           <span className="mr-1">Quantity: </span>
                           <button

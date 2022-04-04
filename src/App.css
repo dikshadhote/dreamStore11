@@ -2,6 +2,7 @@
 @import "./components/Home/Home.css";
 @import "./components/products/Products.css";
 @import "./components/Cart/cart.css";
+@import "./components//wishlist/wishlist.css";
 
 :root {
   --orange-color: #ffad00;

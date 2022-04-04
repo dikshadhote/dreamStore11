@@ -4,9 +4,11 @@ import { useCart } from "../../context/cart-context";
 import { Navbar, Footer } from "../components";
 import FilterProduct from "./FilterProduct";
 import { useLocation, Link } from "react-router-dom";
+import { useWishlist } from "../../context/wishlist-context";
 
 export default function Products() {
   const { filteredProducts, dispatch } = useProductsFilter();
+  const { dispatchWishlist } = useWishlist();
   const { dispatchCart } = useCart();
   const location = useLocation();
   const categoryName = location?.state;
@@ -41,9 +43,19 @@ export default function Products() {
                   className="card flex-column card-vert card-shadow"
                   key={_id}
                 >
-                  <span className="badge add-to-fav" title="Add to Wishlist">
+                  <Link
+                    className="badge add-to-fav"
+                    title="Add to Wishlist"
+                    to="/wishlist"
+                    onClick={() =>
+                      dispatchWishlist({
+                        type: "ADD_TO_WISHLIST",
+                        payload: product,
+                      })
+                    }
+                  >
                     <span className="material-icons icon-red"> favorite </span>
-                  </span>
+                  </Link>
                   <img src={productImg} className="card-img-vert" />
                   <div className="card-body">
                     <a className="card-title" href="#">

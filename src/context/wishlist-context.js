@@ -3,10 +3,15 @@ import { useReducer, createContext, useContext } from "react";
 const WishlistContext = createContext();
 
 const wishlistReducer = (stateWishlist, action) => {
+  const repeatCard = stateWishlist.wishlist.some(
+    (item) => item._id === action.payload._id
+  );
   //   console.log(action);
   const { wishlist } = stateWishlist;
   switch (action.type) {
     case "ADD_TO_WISHLIST":
+      if (repeatCard) return stateWishlist;
+
       return {
         ...stateWishlist,
         wishlist: [...wishlist, action.payload],
@@ -14,9 +19,7 @@ const wishlistReducer = (stateWishlist, action) => {
     case "REMOVE_FROM_WISHLIST":
       return {
         ...stateWishlist,
-        wishlist: wishlist.filter(
-          (item) => item.product._id !== action.payload
-        ),
+        wishlist: wishlist.filter((item) => item._id !== action.payload),
       };
     default:
       return {

@@ -3,12 +3,29 @@ import { useReducer, createContext, useContext } from "react";
 const CartContext = createContext(null);
 
 const cartReducer = (stateCart, action) => {
+  console.log(action.payload);
   switch (action.type) {
     case "ADD_TO_CART":
-      return {
-        ...stateCart,
-        cart: [...stateCart.cart, { product: action.payload, quantity: 1 }],
-      };
+      //some property returns true if same card foundś
+      const repeatCard = stateCart.cart.some(
+        (item) => item.product._id === action.payload._id
+      );
+      console.log(repeatCard);
+      if (repeatCard)
+        return {
+          ...stateCart,
+          cart: stateCart.cart.map((item) => {
+            console.log(item.product._id, action.payload._id);
+            return item.product._id === action.payload._id
+              ? { ...item, quantity: item.quantity + 1 }
+              : { ...item };
+          }),
+        };
+      else
+        return {
+          ...stateCart,
+          cart: [...stateCart.cart, { product: action.payload, quantity: 1 }],
+        };
     case "REMOVE_TO_CART":
       return {
         ...stateCart,

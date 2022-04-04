@@ -59,6 +59,8 @@ export default function Cart() {
                   rating,
                   subtitle,
                 } = item.product;
+
+                console.log(item.product);
                 return (
                   <div className="card hori-card card-shadow" key={_id}>
                     <span
@@ -95,7 +97,7 @@ export default function Cart() {
                           onClick={() =>
                             dispatchWishlist({
                               type: "ADD_TO_WISHLIST",
-                              payload: item,
+                              payload: item.product,
                             })
                           }
                           to="/wishlist"

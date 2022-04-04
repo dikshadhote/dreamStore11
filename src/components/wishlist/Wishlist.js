@@ -1,10 +1,14 @@
 import React from "react";
 import { Navbar, Footer } from "../components";
 import { useWishlist } from "../../context/wishlist-context";
+import { useCart } from "../../context/cart-context";
 import { Link } from "react-router-dom";
+
 export default function Wishlist() {
-  const { stateWishlist } = useWishlist();
+  const { stateWishlist, dispatchWishlist } = useWishlist();
   const { wishlist } = stateWishlist;
+  const { dispatchCart } = useCart();
+  console.log(wishlist);
   return (
     <div>
       <Navbar />
@@ -21,7 +25,65 @@ export default function Wishlist() {
             </div>
           </div>
         ) : (
-          <div class="d-flex align-items-stretch flex-wrap flex-justify-center"></div>
+          <div className="d-flex align-items-stretch flex-wrap flex-justify-center">
+            {wishlist.map((item) => {
+              const {
+                categoryName,
+                _id,
+                subtitle,
+                description,
+                discountPrice,
+                orignalPrice,
+                productImg,
+              } = item;
+              return (
+                <div
+                  className="card flex-column card-vert card-shadow"
+                  key={_id}
+                >
+                  <span
+                    className="badge cancel-card"
+                    title="Remove from wishlist"
+                    onClick={() =>
+                      dispatchWishlist({
+                        type: "REMOVE_FROM_WISHLIST",
+                        payload: _id,
+                      })
+                    }
+                  >
+                    <span className="material-icons"> cancel </span>
+                  </span>
+                  <img src={productImg} className="card-img-vert" />
+                  <div className="card-body">
+                    <a className="card-title" href="#">
+                      {subtitle}
+                    </a>
+                    <span className="card-subtitle">{categoryName}</span>
+                    <p className="card-text">{description}</p>
+                    <div className="price-container">
+                      <span className="orignal-price">Rs {orignalPrice}</span>
+                      <span className="discount-price">Rs {discountPrice}</span>
+                    </div>
+                    <Link
+                      className="btn persian-blue-bg white-text-color btn-card btn-size"
+                      to="/cart"
+                      onClick={() =>
+                        dispatchCart({
+                          type: "ADD_TO_CART",
+                          payload: item,
+                        })
+                      }
+                    >
+                      <span className="material-icons card-btn-icon">
+                        shopping_cart
+                      </span>
+                      Move to cart
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         )}
       </div>
       <Footer />

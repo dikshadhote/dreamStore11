@@ -6,7 +6,6 @@ const wishlistReducer = (stateWishlist, action) => {
   const repeatCard = stateWishlist.wishlist.some(
     (item) => item._id === action.payload._id
   );
-  //   console.log(action);
   const { wishlist } = stateWishlist;
   switch (action.type) {
     case "ADD_TO_WISHLIST":
@@ -33,7 +32,6 @@ const WishlistProvider = ({ children }) => {
     wishlist: [],
   });
 
-  console.log(stateWishlist);
   return (
     <WishlistContext.Provider value={{ stateWishlist, dispatchWishlist }}>
       {children}

@@ -8,7 +8,6 @@ export default function Wishlist() {
   const { stateWishlist, dispatchWishlist } = useWishlist();
   const { wishlist } = stateWishlist;
   const { dispatchCart } = useCart();
-  console.log(wishlist);
   return (
     <div>
       <Navbar />

@@ -5,14 +5,17 @@ import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
 import { ProductsFilterProvider } from "./context/products-filter-context";
+import { CartProvider } from "./context/cart-context";
 // Call make Server
 makeServer();
 
 ReactDOM.render(
   <BrowserRouter>
-    <ProductsFilterProvider>
-      <App />
-    </ProductsFilterProvider>
+    <CartProvider>
+      <ProductsFilterProvider>
+        <App />
+      </ProductsFilterProvider>
+    </CartProvider>
   </BrowserRouter>,
   document.getElementById("root")
 );

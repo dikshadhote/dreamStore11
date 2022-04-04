@@ -1,6 +1,7 @@
 @import "https://dreamui-demo.netlify.app/dreamui-v1.css";
 @import "./components/Home/Home.css";
 @import "./components/products/Products.css";
+@import "./components/Cart/cart.css";
 
 :root {
   --orange-color: #ffad00;

@@ -2,8 +2,10 @@ import React from "react";
 import "./../../App.css";
 import { Link } from "react-router-dom";
 import storeLogo from "../../assets/location.png";
-
+import { useCart } from "../../context/cart-context";
 export default function Navbar() {
+  const { stateCart } = useCart();
+  const { cart } = stateCart;
   return (
     <div>
       {" "}
@@ -31,9 +33,16 @@ export default function Navbar() {
             </span>
           </Link>
           <Link className="black-text-color" to="/cart">
-            <span className="material-icons mr-1 ml-1" title="cart">
-              shopping_cart
-            </span>
+            <div className="icon-container">
+              <span className="material-icons mr-1 ml-1" title="cart">
+                shopping_cart
+              </span>
+              {cart.length > 0 ? (
+                <span className="badge orange-bg position-mail-badge small-badge">
+                  <small className="number">{cart.length}</small>
+                </span>
+              ) : null}
+            </div>
           </Link>
           <Link className="black-text-color" to="/login">
             <span className="material-icons ml-1" title="account">

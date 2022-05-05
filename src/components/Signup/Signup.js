@@ -50,16 +50,6 @@ export default function Signup() {
               placeholder="*******"
             />
           </div>
-          <div className=" mt-2 ml-1 d-flex flex-column">
-            <label htmlFor="input-conf-password" className="ml-2 input-label">
-              Confirm Password
-            </label>
-            <input
-              className="input input-login"
-              id="input-conf-password"
-              placeholder="*******"
-            />
-          </div>
 
           <div className="d-flex flex-justify-around align-items-center">
             <span className="d-flex align-items-center">

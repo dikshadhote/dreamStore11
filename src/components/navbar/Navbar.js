@@ -1,14 +1,23 @@
 import React from "react";
 import "./../../App.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import storeLogo from "../../assets/location.png";
 import { useCart } from "../../context/cart-context";
 import { useWishlist } from "../../context/wishlist-context";
+import { useAuth } from "../../context/auth-context";
 export default function Navbar() {
   const { stateCart } = useCart();
   const { cart } = stateCart;
   const { stateWishlist } = useWishlist();
   const { wishlist } = stateWishlist;
+  const { authState, setAuthState } = useAuth();
+  const navigateTo = useNavigate();
+  const logOutHandler = () => {
+    localStorage.removeItem("token");
+    setAuthState({ isUserLoggedIn: false });
+    navigateTo("/login");
+  };
+
   return (
     <div>
       <div className="nav-bar nav-yellow-shadow">
@@ -53,11 +62,23 @@ export default function Navbar() {
               )}
             </div>
           </Link>
-          <Link className="black-text-color" to="/login">
-            <span className="material-icons ml-1" title="account">
-              account_circle
-            </span>
-          </Link>
+          <div>
+            {authState.isUserLoggedIn && localStorage.getItem("token") ? (
+              <button
+                type="button"
+                className="btn orange-bg login-button ml-3 font-weight-bold btn-size"
+                onClick={() => logOutHandler()}
+              >
+                Logout
+              </button>
+            ) : (
+              <Link className="black-text-color" to="/login">
+                <span className="material-icons ml-1" title="account">
+                  account_circle
+                </span>
+              </Link>
+            )}
+          </div>
         </div>
       </div>
     </div>

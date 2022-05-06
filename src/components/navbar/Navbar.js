@@ -12,7 +12,7 @@ export default function Navbar() {
   const { wishlist } = stateWishlist;
   const { authState, setAuthState } = useAuth();
   const navigateTo = useNavigate();
-
+  //logout handler
   const logOutHandler = () => {
     localStorage.removeItem("token");
     setAuthState({ isUserLoggedIn: false });

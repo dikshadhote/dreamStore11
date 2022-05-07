@@ -2,9 +2,7 @@ import React from "react";
 import "./../../App.css";
 import { Link, useNavigate } from "react-router-dom";
 import storeLogo from "../../assets/location.png";
-import { useCart } from "../../context/cart-context";
-import { useWishlist } from "../../context/wishlist-context";
-import { useAuth } from "../../context/auth-context";
+import { useCart, useWishlist, useAuth } from "../../context";
 export default function Navbar() {
   const { stateCart } = useCart();
   const { cart } = stateCart;

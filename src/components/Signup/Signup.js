@@ -103,8 +103,12 @@ export default function Signup() {
                   id="checkbox-unchecked"
                   className="form-check-input"
                   type="checkbox"
+                  disabled
                 />
-                <label htmlFor="checkbox-unchecked" className="fs-small">
+                <label
+                  htmlFor="checkbox-unchecked"
+                  className="fs-small grey-text"
+                >
                   I accept all terms and conditions
                 </label>
               </span>

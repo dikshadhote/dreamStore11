@@ -42,7 +42,7 @@ export default function Navbar() {
               <span className="material-icons mr-1 ml-1" title="wishlist">
                 favorite
               </span>
-              {wishlist.length > 0 && (
+              {wishlist.length > 0 && authState.isUserLoggedIn && (
                 <span className="badge orange-bg position-mail-badge small-badge">
                   <small className="number">{wishlist.length}</small>
                 </span>
@@ -54,7 +54,7 @@ export default function Navbar() {
               <span className="material-icons mr-1 ml-1" title="cart">
                 shopping_cart
               </span>
-              {cart.length > 0 && (
+              {cart.length > 0 && authState.isUserLoggedIn && (
                 <span className="badge orange-bg position-mail-badge small-badge">
                   <small className="number">{cart.length}</small>
                 </span>

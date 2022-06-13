@@ -90,8 +90,7 @@ export default function Cart() {
                         </span>
                       </div>
                       <div className="d-flex align-items-center flex-justify-space-between">
-                        <Link
-                          href="#"
+                        <button
                           className="btn persian-blue-bg white-text-color btn-card "
                           onClick={() =>
                             dispatchWishlist({
@@ -99,13 +98,12 @@ export default function Cart() {
                               payload: item.product,
                             })
                           }
-                          to="/wishlist"
                         >
                           <span className="material-icons card-btn-icon">
                             favorite
                           </span>
                           <p>Move to Wishlist</p>
-                        </Link>
+                        </button>
                         <div className="ml-1 mb-1 d-flex align-items-center">
                           <span className="mr-1">Quantity: </span>
                           <button

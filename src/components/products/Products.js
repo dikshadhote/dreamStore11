@@ -43,10 +43,9 @@ export default function Products() {
                   className="card flex-column card-vert card-shadow"
                   key={_id}
                 >
-                  <Link
+                  <span
                     className="badge add-to-fav badge-hov"
                     title="Add to Wishlist"
-                    to="/wishlist"
                     onClick={() =>
                       dispatchWishlist({
                         type: "ADD_TO_WISHLIST",
@@ -55,7 +54,7 @@ export default function Products() {
                     }
                   >
                     <span className="material-icons icon-red"> favorite </span>
-                  </Link>
+                  </span>
                   <img src={productImg} className="card-img-vert" />
                   <div className="card-body">
                     <a className="card-title" href="#">
@@ -67,9 +66,8 @@ export default function Products() {
                       <span className="orignal-price">{orignalPrice}</span>
                       <span className="discount-price">Rs {discountPrice}</span>
                     </div>
-                    <Link
+                    <button
                       className="btn persian-blue-bg white-text-color btn-card btn-size"
-                      to="/cart"
                       onClick={() =>
                         dispatchCart({
                           type: "ADD_TO_CART",
@@ -81,7 +79,7 @@ export default function Products() {
                         shopping_cart
                       </span>
                       Move to cart
-                    </Link>
+                    </button>
                   </div>
                 </div>
               );

@@ -12,7 +12,12 @@ export default function FilterProduct() {
 
   const { stateProduct, dispatch } = useProductsFilter();
 
-  const rating = [4, 3, 2, 1];
+  const rating = [
+    { rid: 11, value: 4 },
+    { rid: 12, value: 3 },
+    { rid: 13, value: 2 },
+    { rid: 14, value: 1 },
+  ];
   return (
     <div className="d-flex flex-column sidebar-container mt-2 ml-2">
       <div className="d-flex flex-justify-space-between align-items-center mb-2">
@@ -65,20 +70,20 @@ export default function FilterProduct() {
       <div className="mb-2">
         <h4 className="pb-1">Rating</h4>
         <ul className="list-style-none">
-          {rating.map((rating, index) => {
+          {rating.map((rating) => {
             return (
-              <li key={index}>
+              <li key={rating.rid}>
                 <input
-                  id={index}
+                  id={rating.rid}
                   className="form-check-input"
                   type="radio"
                   name="rating"
-                  checked={stateProduct.sortRating === rating}
+                  checked={stateProduct.sortRating === rating.value}
                   onChange={() =>
-                    dispatch({ type: "sortByRating", payload: rating })
+                    dispatch({ type: "sortByRating", payload: rating.value })
                   }
                 />
-                <label htmlFor={index}>{rating} stars & above</label>
+                <label htmlFor={rating.rid}>{rating.value} stars & above</label>
               </li>
             );
           })}

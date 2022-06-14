@@ -28,3 +28,7 @@
 .badge-hov:hover {
   color: var(--text-black-color);
 }
+
+.icon-black {
+  color: black;
+}

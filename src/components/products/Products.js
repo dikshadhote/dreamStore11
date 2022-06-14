@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useProductsFilter } from "../../context/products-filter-context";
 import { useCart } from "../../context/cart-context";
 import { Navbar, Footer } from "../components";
@@ -8,8 +8,9 @@ import { useWishlist } from "../../context/wishlist-context";
 
 export default function Products() {
   const { filteredProducts, dispatch } = useProductsFilter();
-  const { dispatchWishlist } = useWishlist();
+  const { stateWishlist, dispatchWishlist } = useWishlist();
   const { dispatchCart } = useCart();
+
   const location = useLocation();
   const categoryName = location?.state;
 
@@ -46,20 +47,27 @@ export default function Products() {
                   <span
                     className="badge add-to-fav badge-hov"
                     title="Add to Wishlist"
-                    onClick={() =>
+                    onClick={() => {
                       dispatchWishlist({
                         type: "ADD_TO_WISHLIST",
                         payload: product,
-                      })
-                    }
+                      });
+                    }}
                   >
-                    <span className="material-icons icon-red"> favorite </span>
+                    <span
+                      className={
+                        stateWishlist.wishlist.some((item) => item._id === _id)
+                          ? "material-icons icon-red "
+                          : "material-icons icon-black "
+                      }
+                    >
+                      {" "}
+                      favorite{" "}
+                    </span>
                   </span>
                   <img src={productImg} className="card-img-vert" />
                   <div className="card-body">
-                    <a className="card-title" href="#">
-                      {subtitle}
-                    </a>
+                    <a className="card-title">{subtitle}</a>
                     <span className="card-subtitle">{categoryName}</span>
                     <p className="card-text">{description}</p>
                     <div className="price-container">

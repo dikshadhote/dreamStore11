@@ -59,7 +59,7 @@ export default function Cart() {
                   rating,
                   subtitle,
                 } = item.product;
-                console.log(item);
+
                 return (
                   <div className="card hori-card card-shadow" key={_id}>
                     <span

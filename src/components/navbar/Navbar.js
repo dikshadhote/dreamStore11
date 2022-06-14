@@ -2,7 +2,12 @@ import React from "react";
 import "./../../App.css";
 import { Link, useNavigate } from "react-router-dom";
 import storeLogo from "../../assets/location.png";
-import { useCart, useWishlist, useAuth } from "../../context";
+import {
+  useCart,
+  useWishlist,
+  useAuth,
+  useProductsFilter,
+} from "../../context";
 export default function Navbar() {
   const { stateCart } = useCart();
   const { cart } = stateCart;
@@ -10,6 +15,7 @@ export default function Navbar() {
   const { wishlist } = stateWishlist;
   const { authState, setAuthState } = useAuth();
   const navigateTo = useNavigate();
+  const { stateProduct, dispatch } = useProductsFilter();
   //logout handler
   const logOutHandler = () => {
     localStorage.removeItem("token");
@@ -32,8 +38,16 @@ export default function Navbar() {
         </div>
         <div className="search-bar-section">
           <div className="search-container">
-            <input placeholder="search" className="search-bar" />
-            <span className="material-icons"> search </span>
+            <input
+              className="search-bar"
+              type="text"
+              placeholder="Search item.."
+              id="search"
+              onChange={(e) =>
+                dispatch({ type: "sortBySearch", payload: e.target.value })
+              }
+            />
+            <span className="material-icons">search</span>
           </div>
         </div>
         <div className="nav-items">

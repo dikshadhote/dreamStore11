@@ -52,4 +52,16 @@ const sortByCategory = (data, stateProduct) => {
   }
   return sortArray;
 };
-export { sortByPrice, sortByCategory, sortByRating, sortByRange };
+
+const sortBySearch = (data, stateProduct) => {
+  const { sortSearch } = stateProduct;
+  const sortArray = [...data];
+  if (sortSearch !== "") {
+    let filteredBySearch = sortArray.filter((item) => {
+      return item.subtitle.toLowerCase().includes(sortSearch.toLowerCase());
+    });
+    return filteredBySearch;
+  }
+  return sortArray;
+};
+export { sortByPrice, sortByCategory, sortByRating, sortByRange, sortBySearch };

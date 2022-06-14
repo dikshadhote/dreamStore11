@@ -11,6 +11,7 @@ import {
   sortByRating,
   sortByCategory,
   sortByRange,
+  sortBySearch,
 } from "../utils/sort-functions";
 const ProductFilterContext = createContext(null);
 
@@ -55,12 +56,15 @@ const ProductsFilterProvider = ({ children }) => {
         };
       case "sortByRange":
         return { ...state, sortRange: action.payload };
+      case "sortBySearch":
+        return { ...state, sortSearch: action.payload };
       case "clearAllFilters":
         return {
           sortBy: "",
           sortRating: null,
           sortCategory: [],
           sortRange: 0,
+          sortSearch: "",
         };
       default:
         return data;
@@ -72,6 +76,7 @@ const ProductsFilterProvider = ({ children }) => {
     sortRating: null,
     sortCategory: [],
     sortRange: 0,
+    sortSearch: "",
   });
 
   // if state changed ,it passes current state and productlist/filtered accumalator list to sort function
@@ -90,7 +95,8 @@ const ProductsFilterProvider = ({ children }) => {
     sortByPrice,
     sortByRating,
     sortByCategory,
-    sortByRange
+    sortByRange,
+    sortBySearch
   )(productsList);
 
   return (

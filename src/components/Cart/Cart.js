@@ -102,7 +102,7 @@ export default function Cart() {
                           <span className="material-icons card-btn-icon">
                             favorite
                           </span>
-                          <p>Move to Wishlist</p>
+                          <p>Add to Wishlist</p>
                         </button>
                         <div className="ml-1 mb-1 d-flex align-items-center">
                           <span className="mr-1">Quantity: </span>

@@ -86,7 +86,7 @@ export default function Products() {
                       <span className="material-icons card-btn-icon">
                         shopping_cart
                       </span>
-                      Move to cart
+                      Add to cart
                     </button>
                   </div>
                 </div>

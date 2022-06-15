@@ -81,7 +81,7 @@ export default function Wishlist() {
                         <span className="material-icons card-btn-icon">
                           shopping_cart
                         </span>
-                        Move to cart
+                        Add to cart
                       </button>
                     </div>
                   </div>

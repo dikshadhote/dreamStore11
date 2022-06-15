@@ -69,9 +69,8 @@ export default function Wishlist() {
                           Rs {discountPrice}
                         </span>
                       </div>
-                      <Link
+                      <button
                         className="btn persian-blue-bg white-text-color btn-card btn-size"
-                        to="/cart"
                         onClick={() =>
                           dispatchCart({
                             type: "ADD_TO_CART",
@@ -83,7 +82,7 @@ export default function Wishlist() {
                           shopping_cart
                         </span>
                         Move to cart
-                      </Link>
+                      </button>
                     </div>
                   </div>
                 );

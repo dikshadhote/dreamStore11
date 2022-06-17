@@ -6,19 +6,21 @@ import { Link } from "react-router-dom";
 import dremHouse from "../../assets/dreamHouse.jpg";
 import { useRazorpay } from "../../hooks/useRazorpay";
 export default function Cart() {
-  const { stateCart, dispatchCart } = useCart();
+  const {
+    stateCart,
+    dispatchCart,
+    originalPrice,
+    discountPrice,
+    totalAmount,
+    getTotalAmount,
+    setOriginalPrice,
+    setDiscountPrice,
+  } = useCart();
   const { cart } = stateCart;
   const { dispatchWishlist } = useWishlist();
-  const [originalPrice, setOriginalPrice] = useState(0);
-  const [discountPrice, setDiscountPrice] = useState(0);
-  const [totalAmount, setTotalBillAmount] = useState(0);
+
   const [placeOrder, setPlaceOrder] = useState(false);
   const { loadRazorPay } = useRazorpay();
-
-  const getTotalAmount = (discountPrice) => {
-    const total = discountPrice - 300;
-    setTotalBillAmount(total);
-  };
 
   const makePayment = async () => {
     await loadRazorPay(totalAmount, "Diksha Dhote", "diksha@dreamstore.com");
@@ -29,6 +31,7 @@ export default function Cart() {
       getTotalAmount(discountPrice);
     }
   }, [originalPrice, discountPrice]);
+
   useEffect(() => {
     setOriginalPrice(
       cart.reduce(

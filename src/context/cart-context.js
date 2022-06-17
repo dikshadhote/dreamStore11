@@ -49,6 +49,11 @@ const cartReducer = (stateCart, action) => {
             : { ...item }
         ),
       };
+    case "RESET_CART":
+      return {
+        ...stateCart,
+        cart: [],
+      };
   }
 };
 

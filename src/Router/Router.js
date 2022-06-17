@@ -8,6 +8,7 @@ import {
   Home,
   MockmanComponent,
   Signup,
+  Success,
 } from "./../components/components";
 import PrivateRoute from "./PrivateRoute";
 export default function Router() {
@@ -23,7 +24,10 @@ export default function Router() {
         path="/cart"
         element={<PrivateRoute navigateToPath={<Cart />}></PrivateRoute>}
       />
-
+      <Route
+        path="/success"
+        element={<PrivateRoute navigateToPath={<Success />}></PrivateRoute>}
+      />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/mockman" element={<MockmanComponent />} />

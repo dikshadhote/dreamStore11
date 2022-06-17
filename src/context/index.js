@@ -6,6 +6,7 @@ import {
 
 import { WishlistProvider, useWishlist } from "./wishlist-context";
 import { useAuth, AuthProvider } from "./auth-context";
+import { useOrder, OrderProvider } from "./order-context";
 
 export {
   useCart,
@@ -16,4 +17,6 @@ export {
   useWishlist,
   useAuth,
   AuthProvider,
+  useOrder,
+  OrderProvider,
 };

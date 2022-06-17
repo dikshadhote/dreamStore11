@@ -8,6 +8,7 @@ import Signup from "./Signup/Signup";
 import Wishlist from "./wishlist/Wishlist";
 import Success from "./success/Success";
 import MockmanComponent from "./Mockman/MockmanComponent";
+import Orders from "./Order/Orders";
 export {
   Cart,
   Footer,
@@ -19,4 +20,5 @@ export {
   Wishlist,
   MockmanComponent,
   Success,
+  Orders,
 };

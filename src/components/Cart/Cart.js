@@ -214,8 +214,10 @@ export default function Cart() {
                     type="button"
                     className="btn orange-bg login-button ml-3 font-weight-bold btn-size"
                     onClick={() => {
-                      makePayment();
                       setPlaceOrder(true);
+                      if (placeOrder) {
+                        makePayment();
+                      }
                     }}
                   >
                     {placeOrder ? "Pay now" : " Place Order"}

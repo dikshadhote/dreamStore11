@@ -10,8 +10,19 @@ export default function Cart() {
   const { dispatchWishlist } = useWishlist();
   const [originalPrice, setOriginalPrice] = useState(0);
   const [discountPrice, setDiscountPrice] = useState(0);
+  const [totalAmount, setTotalBillAmount] = useState(0);
   const [placeOrder, setPlaceOrder] = useState(false);
 
+  const getTotalAmount = (discountPrice) => {
+    const total = discountPrice - 300;
+    setTotalBillAmount(total);
+  };
+
+  useEffect(() => {
+    if (discountPrice && originalPrice) {
+      getTotalAmount(discountPrice);
+    }
+  }, [originalPrice, discountPrice]);
   useEffect(() => {
     setOriginalPrice(
       cart.reduce(
@@ -27,6 +38,10 @@ export default function Cart() {
         0
       )
     );
+
+    if (discountPrice && originalPrice) {
+      getTotalAmount(discountPrice);
+    }
   }, [cart]);
 
   return (
@@ -170,7 +185,7 @@ export default function Cart() {
               <div className="d-flex flex-column card-shadow card-checkout ml-2">
                 <h3 className="p-1">Price details</h3>
                 <span className="d-flex flex-justify-space-between">
-                  <p className="p-1">Orignal Price</p>
+                  <p className="p-1">Total of Original Price </p>
                   <p className="p-1">Rs{" " + originalPrice}</p>
                 </span>
                 <span className="d-flex flex-justify-space-between">
@@ -183,9 +198,7 @@ export default function Cart() {
                 </span>
                 <span className="d-flex flex-justify-space-between total-amt pt-1">
                   <p className="p-1 font-weight-bold">Total Amount</p>
-                  <p className="p-1 font-weight-bold">
-                    Rs {originalPrice - discountPrice - 300}
-                  </p>
+                  <p className="p-1 font-weight-bold">Rs {totalAmount}</p>
                 </span>
                 <span className="d-flex flex-justify-center align-items-center">
                   <button

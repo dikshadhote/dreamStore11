@@ -21,3 +21,11 @@
 .login-button.btn-size {
   width: 8rem;
 }
+
+.btn-shop-cart.persian-blue-bg {
+  color: wheat;
+}
+
+.btn-shop-cart.btn-order {
+  margin-left: 35px;
+}

@@ -1,4 +1,10 @@
-import { useReducer, createContext, useContext } from "react";
+import {
+  useReducer,
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+} from "react";
 
 const CartContext = createContext(null);
 
@@ -49,16 +55,41 @@ const cartReducer = (stateCart, action) => {
             : { ...item }
         ),
       };
+    case "RESET_CART":
+      return {
+        ...stateCart,
+        cart: [],
+      };
   }
 };
 
 const CartProvider = ({ children }) => {
+  const [originalPrice, setOriginalPrice] = useState(0);
+  const [discountPrice, setDiscountPrice] = useState(0);
+  const [totalAmount, setTotalBillAmount] = useState(0);
   const [stateCart, dispatchCart] = useReducer(cartReducer, {
     cart: [],
   });
 
+  const getTotalAmount = (discountPrice) => {
+    const total = discountPrice - 300;
+    setTotalBillAmount(total);
+  };
+
   return (
-    <CartContext.Provider value={{ stateCart, dispatchCart }}>
+    <CartContext.Provider
+      value={{
+        stateCart,
+        dispatchCart,
+        totalAmount,
+        setTotalBillAmount,
+        originalPrice,
+        setOriginalPrice,
+        discountPrice,
+        setDiscountPrice,
+        getTotalAmount,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

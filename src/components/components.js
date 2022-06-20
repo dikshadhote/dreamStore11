@@ -6,7 +6,9 @@ import Navbar from "./navbar/Navbar";
 import Products from "./products/Products";
 import Signup from "./Signup/Signup";
 import Wishlist from "./wishlist/Wishlist";
+import Success from "./success/Success";
 import MockmanComponent from "./Mockman/MockmanComponent";
+import Orders from "./Order/Orders";
 export {
   Cart,
   Footer,
@@ -17,4 +19,6 @@ export {
   Signup,
   Wishlist,
   MockmanComponent,
+  Success,
+  Orders,
 };
